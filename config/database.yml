@@ -15,7 +15,7 @@ development:
   database: keke_official_website_development
   pool: 5
   username: root
-  password:
+  password: tomwey860818
   socket: /tmp/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -28,7 +28,7 @@ test:
   database: keke_official_website_test
   pool: 5
   username: root
-  password:
+  password: tomwey860818
   socket: /tmp/mysql.sock
 
 production:

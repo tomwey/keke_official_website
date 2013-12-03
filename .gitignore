@@ -12,4 +12,32 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
+/log/*.log*
 /tmp
+/tmp/**/*
+
+db/*.sqlite3
+db/schema.rb
+
+.sass-cache/
+public/assets/
+config/database.yml
+config/config.yml
+config/redis.yml
+config/mailman.yml
+config/mailer_daemon.yml
+config/newrelic.yml
+public/uploads/**/*
+public/photo/
+public/topics
+public/topics/**/*
+.redcar
+.DS_Store
+*.swp
+*.swo
+.rvmrc
+vendor/ruby
+doc/wiki_repo
+solr/data/
+solr/pids/
+bin/
