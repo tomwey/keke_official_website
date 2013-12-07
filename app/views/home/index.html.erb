@@ -1,2 +1,73 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<% content_for :scripts do %>
+<script type="text/javascript">
+        $(document).ready(function () {
+
+            var showCaseItems = $('.show-case-item').hide();
+
+            var splashes = $('.splash').hide();
+            //get each image for each slide and set it as a background of the slide
+            //            splashes.each(function () {
+            //                var img = $(this).find('img');
+            //                var imgSrc = img.attr('src');
+            //                img.css('visibility', 'hidden');
+            //                $(this).css({ 'background-image': 'url(' + imgSrc + ')', 'background-repeat': 'no-repeat' });
+            //            });
+
+            splashes.eq(0).show();
+            showCaseItems.eq(0).show();
+
+            var prevIndex = -1;
+            var nextIndex = 0;
+            var currentIndex = 0;
+
+            $('#banner-pagination li a').click(function () {
+
+                nextIndex = parseInt($(this).attr('rel'));
+
+                if (nextIndex != currentIndex) {
+                    $('#banner-pagination li a').html('<%= image_tag "slidedot.png" %>');
+                    $(this).html('<%= image_tag "slidedot-active.png" %>');
+                    currentIndex = nextIndex;
+                    if (prevIndex < 0) prevIndex = 0;
+
+                    splashes.eq(prevIndex).css({ opacity: 1 }).animate({ opacity: 0 }, 500, function () {
+                        $(this).hide();
+                    });
+                    splashes.eq(nextIndex).show().css({ opacity: 0 }).animate({ opacity: 1 }, 500, function () { });
+
+                    showCaseItems.eq(prevIndex).css({ opacity: 1 }).animate({ opacity: 0 }, 500, function () {
+                        $(this).hide();
+                        showCaseItems.eq(nextIndex).show().css({ opacity: 0 }).animate({ opacity: 1 }, 200, function () { });
+                    });
+
+                    prevIndex = nextIndex;
+                }
+
+                return false;
+            });
+
+        });
+    </script>
+<% end %>
+
+<div class="marketing">
+  <h1>产品以服务</h1>
+  <p class="marketing-byline">成都可可科技成立于2012年2月，它一直专注于法律类移动互联网应用。<br />
+  法信法律图书馆，是专注于律师专业法律搜索，跨平台。满足普通用对法律的基本查阅，实现专业律师的定制化需求。
+  </p>
+  <hr class="soften">
+  <div class="row-fluid">
+    <div class="span4"> <img src="assets/img/responsive.png" alt="Responsive">
+      <h2>中国法典</h2>
+      <p class="features">法信---致力成为全球最大的中国法律移动服务平台。法信法律图书馆司法考试中国法规判例</p>
+    </div>
+    <div class="span4"> <img src="assets/img/think-creative.png" alt="Think Creative">
+      <h2>中国法典</h2>
+      <p class="features">法信---致力成为全球最大的中国法律移动服务平台。法信法律图书馆司法考试中国法规判例</p>
+    </div>
+    <div class="span4"> <img src="assets/img/core-values.png" alt="Core Values">
+      <h2>中国法典</h2>
+      <p class="features">法信---致力成为全球最大的中国法律移动服务平台。法信法律图书馆司法考试中国法规判例</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= render_page_title %>
+  <%= stylesheet_link_tag "front" %>
+  <%= yield :styles %>
+  <!-- 手机样式 -->
+  <% if mobile? %>
+    <%= stylesheet_link_tag "mobile" %>
+    <meta name="apple-mobile-web-app-capable" content="no" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="apple-touch-icon-precomposed" href="<%= asset_path("ios-icon.png") %>" />
+  <% end %>
+  <meta name="keywords" content="<%= @meta_keywords %>" />
+  <meta name="description" content="<%= @meta_description %>" />
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" href="<%= asset_path("rails.png") %>" />
+  <%= csrf_meta_tags %>
+</head>
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+  
+  <div class="jumbotron masthead">
+    <div class="splash"><%= image_tag "home-banner-bg.jpg" %></div>
+    <div class="splash"><%= image_tag "home-banner-bg2.jpg" %></div>
+    <div class="splash"><%= image_tag "home-banner-bg3.jpg" %></div>
+    <div class="nav-agency">
+      <div class="navbar navbar-fixed-top"> 
+        <div class="navbar-inner">
+          <div class="container">
+            <a href="<%= root_path %>" class="brand"><%= Setting.app_name %></a>
+            <div id="main-nav">
+              <div class="nav-collapse collapse">
+                <ul class="nav">
+                  <li class="active"><a href="index.html">首页</a></li>
+                  <li><a href="#">产品与服务</a></li>
+                  <li><a href="#">关于我们</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container show-case-item">
+      <h1>标题1</h1>
+      <p>介绍1</p>
+      <a href="work.html" class="bigbtn">View Our Work</a>
+      <div class="clearfix"> </div>
+    </div>
+    <div class="container show-case-item">
+      <h1>标题2</h1>
+      <p>介绍2</p>
+      <a href="work.html" class="bigbtn">View Our Work</a>
+      <div class="clearfix"> </div>
+    </div>
+    <div class="container show-case-item">
+      <h1>标题3</h1>
+      <p>介绍3</p>
+      <a href="work.html" class="bigbtn">View Our Work</a>
+      <div class="clearfix"> </div>
+    </div>
+    <div id="banner-pagination">
+      <ul>
+        <li><a href="#" class="active" rel="0"><%= image_tag "slidedot-active.png" %></a></li>
+        <li><a href="#" rel="1"><%= image_tag "slidedot.png" %></a></li>
+        <li><a href="#" rel="2"><%= image_tag "slidedot.png" %></a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="main" class="container">
+    <%= notice_message %>
+    <%= yield %>
+  </div>
+  <%= render 'common/footer' %>
+
+  <%= javascript_include_tag "application" %>
+  <%= yield :scripts %>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<footer>
+  <div class="container">
+    <div class="row-fluid">
+      <div class="span4">
+        <h3>友情链接：</h3>
+        <%= render_list :class => "unstyled" do |li|
+        li << link_to('91移动开放平台')
+        li << link_to('360手机助手')
+        li << link_to('豌豆夹手机助手')
+        li << link_to('pp助手')
+        li << link_to('安卓网')
+        end %>
+      </div>
+      <div class="span4">
+        <h3>联系我们：</h3>
+        <%= render_list :class => "unstyled" do |li|
+        li << '电话：91移动开放平台'
+        li << 'Email：13684043430'
+        li << 'QQ：26281983'
+        end %>
+      </div>
+      <div class="span4">
+        <h3>关注我们：</h3>
+        <a href=""><%= image_tag "sina.png", :alt => "新浪", :title => "新浪" %></a>
+        <a href=""><%= image_tag "qqpengyouquan.png", :alt => "QQ朋友圈", :title => "QQ朋友圈" %></a>
+        <a href=""><%= image_tag "qq.png", :alt => "QQ", :title => "QQ" %></a>
+        <a href=""><%= image_tag "weixin.png", :alt => "微信", :title => "微信" %></a>
+        <a href=""><%= image_tag "douban.png", :alt => "豆瓣", :title => "豆瓣" %></a>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span12">
+        <p class="copyright">
+          Copyright &copy; <%= Time.now.year %> <%= Setting.app_name %> Studio. All Rights Reserved 
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>

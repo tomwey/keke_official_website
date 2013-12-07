@@ -5,15 +5,29 @@
   <%= stylesheet_link_tag "front" %>
   <%= yield :styles %>
   <!-- 手机样式 -->
+  <% if mobile? %>
+    <%= stylesheet_link_tag "mobile" %>
+    <meta name="apple-mobile-web-app-capable" content="no" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="apple-touch-icon-precomposed" href="<%= asset_path("ios-icon.png") %>" />
+  <% end %>
   <meta name="keywords" content="<%= @meta_keywords %>" />
   <meta name="description" content="<%= @meta_description %>" />
   <meta charset="utf-8" />
   <link rel="shortcut icon" href="<%= asset_path("rails.png") %>" />
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+  
+  <%= render 'common/header' %>
+  <div id="main" class="container-fluid">
+    <%= notice_message %>
+    <%= yield %>
+  </div>
+  <%= render 'common/footer' %>
 
-<%= yield %>
-
+  <%= javascript_include_tag "application" %>
+  <%= yield :scripts %>
 </body>
 </html>
