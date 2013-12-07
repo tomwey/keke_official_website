@@ -1,0 +1,13 @@
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => "form-horizontal" }) do |f| %>
+  <%= render "shared/error_messages", :target => resource %>
+  <fieldset>
+    <legend>修改密码</legend>
+    <%= f.input :current_password, :label => "旧密码" %>
+    <%= f.input :password, :label => "新密码" %>
+    <%= f.input :password_confirmation, :label => "确认新密码" %>
+    <div class="form-actions">
+      <%= f.submit "修改", :class => "btn btn-success", :disable_with => "正在提交..." %>
+      <%= link_to "Back", :back, :class => "btn" %>
+    </div>
+  </fieldset>
+<% end %>

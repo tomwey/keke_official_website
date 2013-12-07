@@ -10,6 +10,8 @@ gem 'mysql2'
 gem "devise"
 gem "settingslogic"
 
+gem 'simple_form'
+
 # 分页
 gem "will_paginate"
 
@@ -29,6 +31,11 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+end
+
+group :development do
+  # 禁用 assets 日志
+  gem 'quiet_assets'
 end
 
 gem 'jquery-rails'

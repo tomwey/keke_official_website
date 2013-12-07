@@ -1,0 +1,10 @@
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <%= link_to "KEKE", root_path, :class => "brand" %>
+      <%= render_list :class => "nav" do |li| 
+      li << link_to('应用程序', cpanel_app_infos_path)
+      end %>
+    </div>
+  </div>
+</div>
