@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  description: MyText
+  platform: MyString
+  icon: MyString
+  version: MyString
+  bundle_id: MyString
+  package_name: MyString
+  app_id: MyString
+
+two:
+  name: MyString
+  description: MyText
+  platform: MyString
+  icon: MyString
+  version: MyString
+  bundle_id: MyString
+  package_name: MyString
+  app_id: MyString

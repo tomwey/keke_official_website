@@ -18,10 +18,10 @@
   <link rel="shortcut icon" href="<%= asset_path("rails.png") %>" />
   <%= csrf_meta_tags %>
 </head>
-<body data-spy="scroll" data-target=".bs-docs-sidebar">
+<%= render_body_tag %>
   
   <%= render 'common/header' %>
-  <div id="main" class="container-fluid">
+  <div id="main" class="container">
     <%= notice_message %>
     <%= yield %>
   </div>
