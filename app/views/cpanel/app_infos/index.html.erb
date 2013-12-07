@@ -1,0 +1,29 @@
+<% content_for :sitemap do %>
+  <span class="current">应用列表</span>
+<% end %>
+
+<%= render_header_list("应用列表", "新建应用", "/cpanel/apps/new" ) %>
+<table class="table table-hover">
+  <tr class="head">
+    <td class="first">ID</td>
+    <td>应用名</td>
+    <td>平台</td>
+    <td style="width:300px">描述</td>
+    <td>at</td>
+    <td style="width:140px"></td>
+  </tr>
+  
+  <% @apps.each do |app| %>
+  <tr>
+    <td class="first"><%= app.id %></td>
+    <td><%= app.name %></td>
+    <td><%= app.platform %></td>
+    <td><%= truncate(app.description, :length => 30) %></td>
+    <td><%= l app.created_at, :format => :short %></td>
+    <td>
+      <%= link_to "编辑", edit_cpanel_app_info_path(app), :class => "btn btn-mini" %>
+      <%= link_to "删除", cpanel_app_info_path(app), :confirm => "你确定吗？", :method => :delete, :class => "btn btn-mini btn-danger" %>
+    </td>
+  </tr>
+  <% end %>
+</table>

@@ -12,6 +12,14 @@ gem "settingslogic"
 
 gem 'simple_form'
 
+# 上传组件
+gem "carrierwave"
+# 图像处理
+gem "mini_magick"
+
+# Rails I18n
+gem "rails-i18n"
+
 # 分页
 gem "will_paginate"
 
