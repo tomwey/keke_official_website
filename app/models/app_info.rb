@@ -13,4 +13,10 @@ class AppInfo < ActiveRecord::Base
   def version
     "1.0"
   end
+  
+  before_create :generate_app_key
+  def generate_app_key
+    self.app_key = SecureRandom.uuid.gsub(/-/, '')
+  end
+  
 end

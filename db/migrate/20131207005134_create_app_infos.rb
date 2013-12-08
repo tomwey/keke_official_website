@@ -13,9 +13,5 @@ class CreateAppInfos < ActiveRecord::Migration
       t.timestamps
     end
     
-    add_index :app_infos, :bundle_id, :unique => true
-    add_index :app_infos, :app_id, :unique => true
-    add_index :app_infos, :package_name, :unique => true 
-    
   end
 end

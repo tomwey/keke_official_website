@@ -17,7 +17,7 @@
   <% @apps.each do |app| %>
   <tr>
     <td class="first"><%= app.id %></td>
-    <td><%= image_tag app.icon.url(:normal) if app.icon %></td>
+    <td><%= app_info_icon_tag(app) %></td>
     <td><%= link_to app.name, [:cpanel, app] %></td>
     <td><%= app.platform %></td>
     <td><%= truncate(app.description, :length => 30) %></td>
