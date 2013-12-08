@@ -8,6 +8,8 @@ class AppInfo < ActiveRecord::Base
   # validates :app_id, uniqueness: true, allow_nil: true
   # validates :package_name, uniqueness: true, allow_nil: true
   
+  mount_uploader :icon, ImageUploader
+  
   def version
     "1.0"
   end

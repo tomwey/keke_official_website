@@ -1,55 +1,60 @@
 # encoding: utf-8
+require "digest/md5"
+require "carrierwave/processing/mini_magick"
 
 class ImageUploader < CarrierWave::Uploader::Base
-
-  # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
-
-  # Include the Sprockets helpers for Rails 3.1+ asset pipeline compatibility:
-  # include Sprockets::Helpers::RailsHelper
-  # include Sprockets::Helpers::IsolatedHelper
-
-  # Choose what kind of storage to use for this uploader:
+  include CarrierWave::MiniMagick
+  
   storage :file
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    "uploads/#{model.class.to_s.underscore}"
+  end
+  
+  def default_url
+    "photo/#{version_name}.jpg"
+  end
+  
+  version :normal do
+    process :resize_to_fill => [48,48]
+  end
+  
+  # version :medium do
+  #   process :resize_to_fill => [32,32]
+  # end
+  
+  version :small do
+    process :resize_to_fill => [16,16]
+  end
+  
+  version :large do
+    process :resize_to_fill => [64,64]
+  end
+  
+  version :big do
+    process :resize_to_fill => [120,120]
+  end
+  
+  def extension_white_list
+    %w(jpg jpeg gif png)
   end
 
-  # Provide a default URL as a default if there hasn't been a file uploaded:
-  # def default_url
-  #   # For Rails 3.1+ asset pipeline compatibility:
-  #   # asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-  #
-  #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-  # end
-
-  # Process files as they are uploaded:
-  # process :scale => [200, 300]
-  #
-  # def scale(width, height)
-  #   # do something
-  # end
-
-  # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process :scale => [50, 50]
-  # end
-
-  # Add a white list of extensions which are allowed to be uploaded.
-  # For images you might use something like this:
-  # def extension_white_list
-  #   %w(jpg jpeg gif png)
-  # end
-
-  # Override the filename of the uploaded files:
-  # Avoid using model.id or version_name here, see uploader/store.rb for details.
   # def filename
-  #   "something.jpg" if original_filename
+  #   if super.present?
+  #     ext = File.extname(original_filename)
+  #     # NOTE: 这里的到的图片是裁减过后的图片 MD5，也就是说，只有当原图小于裁减范围的时候，md5 才会保持和原始图片 md5 一致，而达到覆盖的目的
+  #     fname = Digest::MD5.hexdigest(self.read)
+  #     @name ||= "#{fname}#{ext}"
+  #   end
   # end
+  
+  def filename
+    if super.present?
+      "avatar/#{Time.now.to_i}.#{file.extension.downcase}"
+    end
+  end
 
 end

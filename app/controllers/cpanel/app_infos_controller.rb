@@ -5,6 +5,10 @@ class Cpanel::AppInfosController < Cpanel::ApplicationController
     @apps = AppInfo.order('created_at DESC').paginate :page => params[:page], :per_page => 30
   end
   
+  def show
+    @app = AppInfo.find(params[:id])
+  end
+  
   def new
     @app_info = AppInfo.new
   end

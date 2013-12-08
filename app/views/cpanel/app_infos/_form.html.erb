@@ -1,8 +1,9 @@
-<%= simple_form_for [:cpanel, @app_info], :html => { :class => "form-horizontal" } do |f| %>
+<%= simple_form_for [:cpanel, @app_info], :html => { :class => "form-horizontal", :enctype => "multipart/form-data" } do |f| %>
   <%= render "shared/error_messages", :target => @app_info %>
   <fieldset>
     <legend><%= legend %></legend>
     <%= f.input :name, :label => "应用名" %>
+    <%= f.input :icon, :label => "应用Icon" %>
     <%= f.input :version, :label => "应用版本号", :input_html => { :value => 1.0 } %>
     <%= f.input :platform, :label => "支持平台", :collection => %w(iOS Android), :selected => "iOS" %>
     <%= f.input :description, :label => "应用简介", as: :text, :input_html => { :style => "width: 400px", :rows => 6 } %>

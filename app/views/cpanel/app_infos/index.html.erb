@@ -6,6 +6,7 @@
 <table class="table table-hover">
   <tr class="head">
     <td class="first">ID</td>
+    <td>Icon</td>
     <td>应用名</td>
     <td>平台</td>
     <td style="width:300px">描述</td>
@@ -16,7 +17,8 @@
   <% @apps.each do |app| %>
   <tr>
     <td class="first"><%= app.id %></td>
-    <td><%= app.name %></td>
+    <td><%= image_tag app.icon.url(:normal) if app.icon %></td>
+    <td><%= link_to app.name, [:cpanel, app] %></td>
     <td><%= app.platform %></td>
     <td><%= truncate(app.description, :length => 30) %></td>
     <td><%= l app.created_at, :format => :short %></td>
