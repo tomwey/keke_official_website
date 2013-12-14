@@ -1,73 +1,68 @@
-<% content_for :scripts do %>
-<script type="text/javascript">
-        $(document).ready(function () {
-
-            var showCaseItems = $('.show-case-item').hide();
-
-            var splashes = $('.splash').hide();
-            //get each image for each slide and set it as a background of the slide
-            //            splashes.each(function () {
-            //                var img = $(this).find('img');
-            //                var imgSrc = img.attr('src');
-            //                img.css('visibility', 'hidden');
-            //                $(this).css({ 'background-image': 'url(' + imgSrc + ')', 'background-repeat': 'no-repeat' });
-            //            });
-
-            splashes.eq(0).show();
-            showCaseItems.eq(0).show();
-
-            var prevIndex = -1;
-            var nextIndex = 0;
-            var currentIndex = 0;
-
-            $('#banner-pagination li a').click(function () {
-
-                nextIndex = parseInt($(this).attr('rel'));
-
-                if (nextIndex != currentIndex) {
-                    $('#banner-pagination li a').html('<%= image_tag "slidedot.png" %>');
-                    $(this).html('<%= image_tag "slidedot-active.png" %>');
-                    currentIndex = nextIndex;
-                    if (prevIndex < 0) prevIndex = 0;
-
-                    splashes.eq(prevIndex).css({ opacity: 1 }).animate({ opacity: 0 }, 500, function () {
-                        $(this).hide();
-                    });
-                    splashes.eq(nextIndex).show().css({ opacity: 0 }).animate({ opacity: 1 }, 500, function () { });
-
-                    showCaseItems.eq(prevIndex).css({ opacity: 1 }).animate({ opacity: 0 }, 500, function () {
-                        $(this).hide();
-                        showCaseItems.eq(nextIndex).show().css({ opacity: 0 }).animate({ opacity: 1 }, 200, function () { });
-                    });
-
-                    prevIndex = nextIndex;
-                }
-
-                return false;
-            });
-
-        });
-    </script>
-<% end %>
-
-<div class="marketing">
-  <h1>产品以服务</h1>
-  <p class="marketing-byline">成都可可科技成立于2012年2月，它一直专注于法律类移动互联网应用。<br />
-  法信法律图书馆，是专注于律师专业法律搜索，跨平台。满足普通用对法律的基本查阅，实现专业律师的定制化需求。
-  </p>
-  <hr class="soften">
-  <div class="row-fluid">
-    <div class="span4"> <img src="assets/img/responsive.png" alt="Responsive">
-      <h2>中国法典</h2>
-      <p class="features">法信---致力成为全球最大的中国法律移动服务平台。法信法律图书馆司法考试中国法规判例</p>
+<% content_for :carousel do %>
+<!-- Carousel
+================================================== -->
+<div id="myCarousel" class="carousel slide">
+  <div class="carousel-inner">
+    <div class="item active">
+      <%= image_tag "bootstrap-mdo-sfmoma-01.jpg" %>
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>法信——口袋中的法律图书馆</h1>
+          <p class="lead">所有律师值得拥有的产品</p>
+          <a class="btn btn-large btn-primary" href="#">&nbsp;&nbsp;Android下载&nbsp;&nbsp;</a><br />
+          <a class="btn btn-large btn-primary btn-success" href="#">&nbsp;&nbsp;&nbsp;&nbsp;iOS版下载&nbsp;&nbsp;&nbsp;&nbsp;</a><br />
+          <a class="btn btn-large btn-primary btn-info" href="#">iOS越狱版下载</a>
+        </div>
+      </div>
     </div>
-    <div class="span4"> <img src="assets/img/think-creative.png" alt="Think Creative">
-      <h2>中国法典</h2>
-      <p class="features">法信---致力成为全球最大的中国法律移动服务平台。法信法律图书馆司法考试中国法规判例</p>
+    <div class="item">
+      <%= image_tag "bootstrap-mdo-sfmoma-02.jpg" %>
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>动动脑子游戏</h1>
+          <p class="lead">脑壳不用就瓜了，快点爽一下吧！</p>
+          <a class="btn btn-large btn-primary btn-success" href="#">iOS版下载</a>
+        </div>
+      </div>
     </div>
-    <div class="span4"> <img src="assets/img/core-values.png" alt="Core Values">
-      <h2>中国法典</h2>
-      <p class="features">法信---致力成为全球最大的中国法律移动服务平台。法信法律图书馆司法考试中国法规判例</p>
+    <div class="item">
+      <%= image_tag "bootstrap-mdo-sfmoma-03.jpg" %>
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>中国法典</h1>
+          <p class="lead">中国法典，国之利器，法之典范。法律中的战斗机，哦也！！！</p>
+          <a class="btn btn-large btn-primary btn-success" href="#">iOS版下载</a>
+        </div>
+      </div>
     </div>
   </div>
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div><!-- /.carousel -->
+<% end %>
+
+<% content_for :scripts do %>
+
+<script>
+      !function ($) {
+        $(function(){
+          // carousel demo
+          $('#myCarousel').carousel()
+        })
+      }(window.jQuery)
+</script>
+
+<% end %>
+
+<!-- Jumbotron -->
+<div class="jumbotron">
+  <h1>产品以服务</h1>
+  <p class="lead">成都可可科技成立于2012年2月，它-直专注于法律类移动互联网应用。<br>
+    法信法律图书馆，是专注于律师专业法律搜索，跨平台。满足普通用户对法律的基本查阅，实现专业律师的定制化需求。</p>
+    <a href="#" class="btn btn-large btn-success">去下载吧</a>
 </div>
+
+<!-- Three columns of text below the carousel -->
+<div class="row">
+  <%= render partial: "app_infos/app_info", collection: @apps %>
+</div><!-- /.row -->

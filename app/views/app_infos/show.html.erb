@@ -1,0 +1,13 @@
+<% content_for :styles do %>
+  <%= stylesheet_link_tag "apps" %>
+<% end %>
+<div class="movedown-90 app-info">
+    <%= image_tag @app.icon.url(:big), :class => "pull-left" %>
+    <ul class="unstyled">
+      <li>名字：<%= @app.name %></li>
+      <li>版本：<%= @app.version %></li>
+      <li>更新时间：<%= l @app.updated_at %></li>
+      <li>应用介绍：<%= @app.description %></li>
+      <li><%= link_to 'iOS下载', '#', :class => "btn btn-primary btn-large" %></li>
+    </ul>
+</div>

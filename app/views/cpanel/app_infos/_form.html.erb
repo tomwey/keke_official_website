@@ -3,7 +3,15 @@
   <fieldset>
     <legend><%= legend %></legend>
     <%= f.input :name, :label => "应用名" %>
-    <%= f.input :icon, :label => "应用Icon" %>
+    <% if @app_info.icon? -%>
+      <%= image_tag(@app_info.icon.normal, :class => "offset2") %>
+
+      <label class="checkbox inline">
+        <%= f.check_box :remove_icon %> 删除
+      </label>
+    <% end -%>
+    <%= f.input :icon,:label => "应用Icon" %>
+    <%= f.hidden_field :icon_cache %>
     <%= f.input :version, :label => "应用版本号", :input_html => { :value => 1.0 } %>
     <%= f.input :platform, :label => "支持平台", :collection => %w(iOS Android), :selected => "iOS" %>
     <%= f.input :description, :label => "应用简介", as: :text, :input_html => { :style => "width: 400px", :rows => 6 } %>
