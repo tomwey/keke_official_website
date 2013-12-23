@@ -1,0 +1,18 @@
+<%= simple_form_for [:cpanel, @app_platform], :html => { :class => "form-horizontal", :enctype => "multipart/form-data" } do |f| %>
+  <%= render "shared/error_messages", :target => @app_platform %>
+  <fieldset>
+    <legend><%= legend %></legend>
+    <%= f.input :name, :label => "平台", :collection => %w(iOS Android iOS越狱版), :prompt => "--选择所支持的平台--" %>
+    <%= f.input :app_info_id, :label => "所属应用", :collection => AppInfo.all.map { |app| [app.name, app.id] }, :prompt => "--选择所属的应用名--" %>
+    <%= f.input :version, :label => "版本号" %>
+    <%= f.input :download, :label => "应用包", :as => :file %>
+    <%= f.input :app_id, :label => "Apple Id", :hint => "如果是iOS版，那么需要提供Apple Id" %>
+    <div class="controls">
+      <%= link_to_add_fields "添加产品截图", f, :screenshots %>
+    </div>
+    <div class="form-actions">
+      <%= f.submit "保存", :disable_with => "正在提交...", :class => "btn btn-success" %>
+      <%= link_to "返回", :back, :class => "btn" %>
+    </div>
+  </fieldset>
+<% end %>

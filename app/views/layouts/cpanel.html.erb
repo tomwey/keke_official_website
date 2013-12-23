@@ -14,6 +14,7 @@
         <%= link_to "控制台", cpanel_root_path, :class => "brand" %>
         <%= render_list :class => "nav" do |li| 
         li << link_to('应用程序', cpanel_app_infos_path)
+        li << link_to('平台', cpanel_app_platforms_path)
         end %>
         
         <% if current_user %>

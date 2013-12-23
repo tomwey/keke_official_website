@@ -1,0 +1,30 @@
+<% content_for :sitemap do %>
+  <span class="current">平台信息</span>
+<% end %>
+<%= render_header_list("平台列表", "新建平台信息", "/cpanel/platforms/new" ) %>
+<table class="table table-hover">
+  <tr class="head">
+    <td class="first">ID</td>
+    <td>平台名</td>
+    <td>所属应用</td>
+    <td>当前版本</td>
+    <td>App Key</td>
+    <td>at</td>
+    <td style="width:140px"></td>
+  </tr>
+  
+  <% @app_platforms.each do |app_platform| %>
+  <tr>
+    <td class="first"><%= app_platform.id %></td>
+    <td><%= app_platform.name %></td>
+    <td><%= app_platform.app_name %></td>
+    <td><%= app_platform.version %></td>
+    <td><%= app_platform.app_key %></td>
+    <td><%= l app_platform.created_at, :format => :short %></td>
+    <td>
+      <%= link_to "编辑", edit_cpanel_app_platform_path(app_platform), :class => "btn btn-mini" %>
+      <%= link_to "删除", cpanel_app_platform_path(app_platform), :confirm => "你确定吗？", :method => :delete, :class => "btn btn-mini btn-danger" %>
+    </td>
+  </tr>
+  <% end %>
+</table>

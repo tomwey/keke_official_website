@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  app_info_id: 1
+  version: MyString
+  name: MyString
+  app_key: MyString
+  url: MyString
+  download: MyString
+
+two:
+  app_info_id: 1
+  version: MyString
+  name: MyString
+  app_key: MyString
+  url: MyString
+  download: MyString

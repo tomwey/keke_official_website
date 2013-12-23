@@ -1,0 +1,8 @@
+<% content_for :sitemap do %>
+  <span class="current">平台详细</span>
+<% end %>
+<div class="app">
+  <p><strong>平台名：</strong><%= @app_platform.name %></p>
+  <p><strong>所属应用：</strong><%= @app_platform.app_name %></p>
+  <p><strong>当前版本：</strong><%= @app_platform.version %></p>
+</div>

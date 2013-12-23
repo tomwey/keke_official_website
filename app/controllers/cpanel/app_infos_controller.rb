@@ -11,6 +11,7 @@ class Cpanel::AppInfosController < Cpanel::ApplicationController
   
   def new
     @app_info = AppInfo.new
+    @app_platform = @app_info.app_platforms.build
   end
   
   def create
