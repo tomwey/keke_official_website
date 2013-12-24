@@ -19,4 +19,13 @@ class AppPlatform < ActiveRecord::Base
     self.app_key = SecureRandom.uuid.gsub(/-/, '')
   end
   
+  def app_download_url
+    app_url = if self.download_url
+      download_url
+    else
+      "https://itunes.apple.com/id#{app_id}"
+    end
+    app_url
+  end
+  
 end

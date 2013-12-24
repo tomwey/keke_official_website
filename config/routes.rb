@@ -1,7 +1,5 @@
 KekeOfficialWebsite::Application.routes.draw do
 
-  get "app_platforms/index"
-
   root to: "home#index"
   devise_for :users, :path => "account", :controllers => {
     :registrations => :account,
@@ -16,8 +14,10 @@ KekeOfficialWebsite::Application.routes.draw do
   
   namespace :cpanel do
     root to: "home#index"
+    resources :site_configs
     resources :app_infos, :path => :apps 
     resources :app_platforms, :path => :platforms
+    resources :banners, :path => :ads
   end
   
 end

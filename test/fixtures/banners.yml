@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  app_ino_id: 1
+  title: MyString
+  summary: MyString
+  screenshot: MyString
+
+two:
+  app_ino_id: 1
+  title: MyString
+  summary: MyString
+  screenshot: MyString

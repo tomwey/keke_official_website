@@ -2,6 +2,9 @@
   errors:
     messages:
       extension_white_list_error: "文件格式不正确"
+  site_config:
+    jumbotron_html: "官网首页大字报 HTML"
+    
   activerecord:
     models:
       user: "用户"

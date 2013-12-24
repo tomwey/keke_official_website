@@ -1,0 +1,14 @@
+<%= simple_form_for [:cpanel, @banner], :html => { :class => "form-horizontal", :enctype => "multipart/form-data" } do |f| %>
+  <%= render "shared/error_messages", :target => @banner %>
+  <fieldset>
+    <legend><%= legend %></legend>
+    <%= f.input :title, :label => "标题" %>
+    <%= f.input :summary, :label => "简介", :input_html => { :class => "span6" } %>
+    <%= f.input :app_info_id, :label => "所属应用", :collection => AppInfo.all.map { |app| [app.name, app.id] }, :prompt => "--选择应用--" %>
+    <%= f.input :screenshot, :label => "广告图片", :as => :file %>
+    <div class="form-actions">
+      <%= f.submit "保存", :disable_with => "正在提交...", :class => "btn btn-success" %>
+      <%= link_to "返回", :back, :class => "btn" %>
+    </div>
+  </fieldset>
+<% end %>

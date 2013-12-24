@@ -3,7 +3,7 @@
 <head>
   <title>成都可可科技 - 后台管理系统</title>
   <%= stylesheet_link_tag "cpanel" %>
-  <link rel="shortcut icon" href="<%= asset_path("rails.png") %>" />
+  <link rel="shortcut icon" href="<%= asset_path("favico.png") %>" />
   <%= csrf_meta_tags %>
 </head>
 <%= render_body_tag %>
@@ -13,8 +13,10 @@
       <div class="container">
         <%= link_to "控制台", cpanel_root_path, :class => "brand" %>
         <%= render_list :class => "nav" do |li| 
+        li << link_to('站点配置', cpanel_site_configs_path)
         li << link_to('应用程序', cpanel_app_infos_path)
         li << link_to('平台', cpanel_app_platforms_path)
+        li << link_to('广告', cpanel_banners_path)
         end %>
         
         <% if current_user %>
