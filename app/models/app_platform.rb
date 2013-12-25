@@ -2,6 +2,7 @@ class AppPlatform < ActiveRecord::Base
   attr_accessible :app_info_id, :app_key, :download, :name, :version, :app_id, :screenshots_attributes
   
   belongs_to :app_info
+  has_many :feedbacks
   
   validates_presence_of :name, :version, :app_info_id
   

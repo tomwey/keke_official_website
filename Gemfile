@@ -10,6 +10,9 @@ gem 'mysql2'
 gem "devise"
 gem "settingslogic"
 
+gem 'grape'
+gem 'grape-entity'
+
 gem 'simple_form'
 
 # 上传组件

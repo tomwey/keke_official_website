@@ -1,4 +1,6 @@
 KekeOfficialWebsite::Application.routes.draw do
+  
+  require 'api'
 
   root to: "home#index"
   devise_for :users, :path => "account", :controllers => {
@@ -18,6 +20,9 @@ KekeOfficialWebsite::Application.routes.draw do
     resources :app_infos, :path => :apps 
     resources :app_platforms, :path => :platforms
     resources :banners, :path => :ads
+    resources :feedbacks, only: [:index, :show, :destroy]
   end
+  
+  mount KeKe::API => "/"
   
 end

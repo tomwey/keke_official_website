@@ -1,0 +1,23 @@
+<% content_for :sitemap do %>
+  <span class="current">用户反馈</span>
+<% end %>
+
+<table class="table table-hover">
+  <tr>
+    <th>ID</th>
+    <th>Author</th>
+    <th>内容</th>
+    <th>所属应用</th>
+    <th></th>
+  </tr>
+
+<% @feedbacks.each do |feedback| %>
+  <tr>
+    <td><%= link_to feedback.id, cpanel_feedback_path(feedback) %></td>
+    <td><%= feedback.try(:author) %></td>
+    <td><%= truncate(feedback.content, :length => 30) %></td>
+    <td><%= feedback.app_info %></td>
+    <td><%= link_to '删除', cpanel_feedback_path(feedback), :class => "btn btn-mini btn-danger", :confirm => "你确定吗？" %></td>
+  </tr>
+<% end %>
+</table>
