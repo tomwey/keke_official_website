@@ -4,6 +4,9 @@
       extension_white_list_error: "文件格式不正确"
   site_config:
     jumbotron_html: "官网首页大字报 HTML"
+    links_html: "友情链接 HTML"
+    contact_html: "联系我们 HTML"
+    share_html: "关注我们 HTML"
     
   activerecord:
     models:

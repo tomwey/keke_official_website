@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  bundle_id: MyString
+  os_version: MyString
+  bundle_version: MyString
+  model: MyString
+  region_code: MyString
+  screen_size: MyString
+  app_platform_id: 1
+
+two:
+  bundle_id: MyString
+  os_version: MyString
+  bundle_version: MyString
+  model: MyString
+  region_code: MyString
+  screen_size: MyString
+  app_platform_id: 1

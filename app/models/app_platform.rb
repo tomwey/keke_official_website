@@ -3,6 +3,7 @@ class AppPlatform < ActiveRecord::Base
   
   belongs_to :app_info
   has_many :feedbacks
+  has_many :tracks
   
   validates_presence_of :name, :version, :app_info_id
   

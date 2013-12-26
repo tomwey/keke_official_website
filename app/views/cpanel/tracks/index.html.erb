@@ -1,0 +1,29 @@
+<% content_for :sitemap do %>
+  <span class="current">数据统计</span>
+<% end %>
+
+<table class="table table-hover">
+  <tr>
+    <th>ID</th>
+    <th>设备名</th>
+    <th>系统版本</th>
+    <th>设备尺寸</th>
+    <th>Region Code</th>
+    <th>所属应用</th>
+    <th>应用当前版本</th>
+    <th></th>
+  </tr>
+
+<% @tracks.each do |track| %>
+  <tr>
+    <td><%= track.id %></td>
+    <td><%= track.model %></td>
+    <td><%= track.os_version %></td>
+    <td><%= track.screen_size %></td>
+    <td><%= track.region_code %></td>
+    <td><%= track.app_name %></td>
+    <td><%= track.bundle_version %></td>
+    <td><%= link_to '删除', cpanel_track_path(track), :class => "btn btn-mini btn-danger", :confirm => "你确定吗？" %></td>
+  </tr>
+<% end %>
+</table>

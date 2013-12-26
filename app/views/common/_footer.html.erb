@@ -2,30 +2,13 @@
   <div class="container">
     <div class="row-fluid">
       <div class="span4">
-        <h3>友情链接：</h3>
-        <%= render_list :class => "unstyled" do |li|
-        li << link_to('91移动开放平台', '#')
-        li << link_to('360手机助手', '#')
-        li << link_to('豌豆夹手机助手', '#')
-        li << link_to('pp助手', '#')
-        li << link_to('安卓网', '#')
-        end %>
+        <%= raw SiteConfig.links_html %>
       </div>
       <div class="span4">
-        <h3>联系我们：</h3>
-        <%= render_list :class => "unstyled" do |li|
-        li << '电话：13684043430'
-        li << 'Email：kekestudio@sina.com'
-        li << 'QQ：26281983'
-        end %>
+        <%= raw SiteConfig.contact_html %>
       </div>
       <div class="span4">
-        <h3>关注我们：</h3>
-        <a href=""><%= image_tag "sina.png", :alt => "新浪", :title => "新浪", :class => "share-btn" %></a>
-        <a href=""><%= image_tag "qqpengyouquan.png", :alt => "QQ朋友圈", :title => "QQ朋友圈", :class => "share-btn" %></a>
-        <a href=""><%= image_tag "qq.png", :alt => "QQ", :title => "QQ", :class => "share-btn" %></a>
-        <a href=""><%= image_tag "weixin.png", :alt => "微信", :title => "微信", :class => "share-btn" %></a>
-        <a href=""><%= image_tag "douban.png", :alt => "豆瓣", :title => "豆瓣", :class => "share-btn" %></a>
+        <%= raw SiteConfig.share_html %>
       </div>
     </div>
     <div class="row-fluid">
