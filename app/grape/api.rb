@@ -50,7 +50,7 @@ module KeKe
         
         track = ap.tracks.find_by_udid(params[:u])
         if track.blank?
-          if ap.tracks.create(
+          if ap.tracks.create!(
             :udid => params[:u],
             :bundle_id => params[:b],
             :os_version => params[:ov],
