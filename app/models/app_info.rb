@@ -17,6 +17,10 @@ class AppInfo < ActiveRecord::Base
     app_platforms.map { |app_platform| app_platform.name }.join(',')
   end
   
+  def screenshots
+    app_platforms.first.screenshots
+  end
+  
   # def version
   #   "1.0"
   # end

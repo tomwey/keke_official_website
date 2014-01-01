@@ -36,9 +36,14 @@
 
 <% end %>
 
-<%= raw SiteConfig.jumbotron_html %>
-
 <!-- Three columns of text below the carousel -->
-<div class="row">
+<div class="container">
   
-</div><!-- /.row -->
+  <%= raw SiteConfig.jumbotron_html %>
+  
+  <div class="row">
+  
+    <%= render @app_infos %>
+  
+  </div><!-- /.row -->
+</div>

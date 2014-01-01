@@ -9,6 +9,13 @@
 }
 
 .app-info {
+  section {
+    .quote {
+      font-size: 60;
+      font-weight: bold;
+    }
+  }
+  
   img {
 //    border: 1px solid #ccc;
     padding: 2px;
@@ -23,4 +30,20 @@
       padding-bottom: 2px;
     }
   }
+}
+
+.app-info-cell {
+  margin-top: 20px;
+  margin-bottom: -20px;
+  .app-info-screenshot {
+    padding: 20px 0;
+    .description {
+      height: 100%;
+      line-height: 100%;
+    }
+  }
+  .app-info-screenshot-0 {
+    background: #eee;
+  }
+  
 }

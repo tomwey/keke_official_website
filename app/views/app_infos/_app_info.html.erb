@@ -2,7 +2,7 @@
   <%= link_to image_tag(app_info.icon.url(:big), :class => "img-circle"), app_info %>
   <h2><%= app_info.name %></h2>
   <p><%= truncate(app_info.description, :length => 30) %></p>
-  <p><%= link_to "Android下载", '#', :class => "btn"%></p>
-  <p><%= link_to "iOS版下载", '#', :class => "btn"%></p>
-  <p><%= link_to "iOS越狱版下载", '#', :class => "btn"%></p>
+  <% app_info.app_platforms.each do |pf| %>
+  <p><%= link_to image_tag(image_name_for_platform(pf), :style => "width: 124px; height: 33px"), render_platform_link(pf) %></p>
+  <% end %>
 </div>

@@ -1,4 +1,15 @@
 <div class="control-group" id="upload-control">
+  
+  <%= f.label :title, "标题", :class => "control-label" %>
+  <div class="controls">
+    <%= f.text_field :title %>
+  </div>
+  
+  <%= f.label :description, "简介", :class => "control-label" %>
+  <div class="controls">
+    <%= f.text_field :description %>
+  </div>
+  
   <%= f.label :image, "产品截图", :class => "control-label" %>
   <div class="controls">
     <%= f.file_field :image %>
