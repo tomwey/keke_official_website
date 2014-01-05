@@ -3,6 +3,6 @@
   <h2><%= app_info.name %></h2>
   <p><%= truncate(app_info.description, :length => 30) %></p>
   <% app_info.app_platforms.each do |pf| %>
-  <p><%= link_to image_tag(image_name_for_platform(pf), :style => "width: 124px; height: 33px"), render_platform_link(pf) %></p>
+  <p><%= link_to image_tag(image_name_for_platform(pf), :style => "width: 124px; height: 33px"), render_platform_link(pf), :target => "_blank" %></p>
   <% end %>
 </div>

@@ -5,14 +5,11 @@
   <div class="carousel-inner">
     <% @banners.each_with_index do |banner, index| %>
     <div class="item <%= "active" if index == 0 %>">
-      <%= image_tag banner.screenshot_url %>
+      <%= link_to image_tag(banner.screenshot_url), app_info_path(banner.app_info) %>
       <div class="container">
         <div class="carousel-caption">
           <h1><%= banner.title %></h1>
           <p class="lead"><%= banner.summary %></p>
-          <% banner.platforms.each do |p| %>
-          <a class="btn btn-large btn-primary btn-success" href="<%= p.app_download_url %>"><%= p.name %></a>
-          <% end %>
         </div>
       </div>
     </div>

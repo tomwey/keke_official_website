@@ -7,6 +7,8 @@
     links_html: "友情链接 HTML"
     contact_html: "联系我们 HTML"
     share_html: "关注我们 HTML"
+    product_head_html: "产品页头部描述 HTML"
+    about_head_html: "关于我们头部描述 HTML"
     
   activerecord:
     models:

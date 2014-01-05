@@ -83,6 +83,7 @@ body {
 .carousel .item {
   height: 500px;
 }
+
 .carousel img {
   position: absolute;
   top: 0;
@@ -96,11 +97,13 @@ body {
   position: static;
   max-width: 550px;
   padding: 0 20px;
-  margin-top: 200px;
+  margin: 0 auto;
+  margin-top: 100px;
 }
 .carousel-caption h1,
 .carousel-caption .lead {
   margin: 0;
+  text-align: center;
   line-height: 1.25;
   color: #fff;
   text-shadow: 0 1px 1px rgba(0,0,0,.4);

@@ -29,3 +29,19 @@ SiteConfig.save_default("share_html", <<-eos
 <a href=""><img alt="豆瓣" class="share-btn" src="/assets/douban.png" title="豆瓣" /></a>
 eos
 )
+
+SiteConfig.save_default("about_head_html", <<-eos
+<h2>关于我们</h2>
+<section>
+  <p>法信——致力于成为全球最大的中国法律移动服务平台。法信 法律 图书馆 司法 考试 中国 法规 判例 司法 解释 部门 规章 地方法 法信移动服务平台通过服务模式的创新，服务资源的整合，服务手段的多样化全覆盖，提出了全信的法律移动服务平台。</p>
+</section>
+eos
+)
+
+SiteConfig.save_default("product_head_html", <<-eos
+<h2>我们的产品</h2>
+<section>
+  <p>法信——致力于成为全球最大的中国法律移动服务平台。法信 法律 图书馆 司法 考试 中国 法规 判例 司法 解释 部门 规章 地方法 法信移动服务平台通过服务模式的创新，服务资源的整合，服务手段的多样化全覆盖，提出了全信的法律移动服务平台。</p>
+</section>
+eos
+)

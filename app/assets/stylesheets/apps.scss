@@ -37,13 +37,37 @@
   margin-bottom: -20px;
   .app-info-screenshot {
     padding: 20px 0;
-    .description {
-      height: 100%;
-      line-height: 100%;
+    .container-centered {
+      //display: table;
+//      width: 100%;
+      .centered {
+        text-align: center;
+      }
+      .centered:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        margin-right: -0.25em;
+        vertical-align: middle;
+      }
     }
+    
   }
   .app-info-screenshot-0 {
     background: #eee;
   }
   
+}
+
+.app-info-screenshot:before, .description {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.app-info-screenshot:before {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 100%;
+  vertical-align: middle;
 }
