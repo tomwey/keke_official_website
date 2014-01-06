@@ -22,11 +22,21 @@ eos
 
 SiteConfig.save_default("share_html", <<-eos
 <h3>关注我们：</h3>
-<a href=""><img alt="新浪" class="share-btn" src="/assets/sina.png" title="新浪" /></a>
-<a href=""><img alt="QQ朋友圈" class="share-btn" src="/assets/qqpengyouquan.png" title="QQ朋友圈" /></a>
-<a href=""><img alt="QQ" class="share-btn" src="/assets/qq.png" title="QQ" /></a>
-<a href=""><img alt="微信" class="share-btn" src="/assets/weixin.png" title="微信" /></a>
-<a href=""><img alt="豆瓣" class="share-btn" src="/assets/douban.png" title="豆瓣" /></a>
+<!-- Baidu Button BEGIN -->
+	    <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+	        <span class="bds_more">分享到：</span>
+	        <a class="bds_qzone"></a>
+	        <a class="bds_tsina"></a>
+	        <a class="bds_tqq"></a>
+	        <a class="bds_renren"></a>
+			<a class="shareCount"></a>
+	    </div>
+	<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=632209" ></script>
+	<script type="text/javascript" id="bdshell_js"></script>
+	<script type="text/javascript">
+		document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?t=" + new Date().getHours();
+	</script>
+	<!-- Baidu Button END -->
 eos
 )
 
