@@ -15,13 +15,15 @@ module KeKe
         requires :key, type: String, desc: "应用程序标示"
         requires :content, type: String, desc: "反馈正文"
         optional :author, type: String, desc: "联系方式"
+        optional :m, type: String, desc: "设备名称，例如iPhone_3G"
+        optional :ov, type: String, desc: "设备系统版本号，例如6.1.3"
       end
       post do
         ap = AppPlatform.find_by_app_key(params[:key])
         if ap.blank?
           return render_404_json
         end
-        if ap.feedbacks.create(:author => params[:author], :content => params[:content])
+        if ap.feedbacks.create(:author => params[:author], :content => params[:content], :model => params[:m], :os_version => params[:ov])
           render_success
         else
           render_error_json_no_data(4001, "创建反馈失败")

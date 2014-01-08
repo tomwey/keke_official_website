@@ -1,5 +1,5 @@
 class Feedback < ActiveRecord::Base
-  attr_accessible :author, :content
+  attr_accessible :author, :content, :model, :os_version
   
   validates_presence_of :content
   

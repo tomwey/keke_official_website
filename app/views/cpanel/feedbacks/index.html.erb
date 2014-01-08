@@ -7,6 +7,8 @@
     <th>ID</th>
     <th>Author</th>
     <th>内容</th>
+    <th>设备名</th>
+    <th>设备系统</th>
     <th>所属应用</th>
     <th></th>
   </tr>
@@ -16,6 +18,8 @@
     <td><%= link_to feedback.id, cpanel_feedback_path(feedback) %></td>
     <td><%= feedback.try(:author) %></td>
     <td><%= truncate(feedback.content, :length => 30) %></td>
+    <td><%= feedback.try(:model) %></td>
+    <td><%= feedback.try(:os_version) %></td>
     <td><%= feedback.app_info %></td>
     <td><%= link_to '删除', cpanel_feedback_path(feedback), :class => "btn btn-mini btn-danger", :confirm => "你确定吗？" %></td>
   </tr>

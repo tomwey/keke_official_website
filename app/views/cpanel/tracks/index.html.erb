@@ -9,6 +9,7 @@
     <th>系统版本</th>
     <th>设备尺寸</th>
     <th>Region Code</th>
+    <th>UDID</th>
     <th>所属应用</th>
     <th>应用当前版本</th>
     <th></th>
@@ -21,6 +22,7 @@
     <td><%= track.os_version %></td>
     <td><%= track.screen_size %></td>
     <td><%= track.region_code %></td>
+    <td><%= track.try(:udid) %></td>
     <td><%= track.app_name %></td>
     <td><%= track.bundle_version %></td>
     <td><%= link_to '删除', cpanel_track_path(track), :class => "btn btn-mini btn-danger", :confirm => "你确定吗？" %></td>
