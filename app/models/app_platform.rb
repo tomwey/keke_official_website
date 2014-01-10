@@ -29,7 +29,7 @@ class AppPlatform < ActiveRecord::Base
     app_url = if self.download_url
       download_url
     else
-      "https://itunes.apple.com/id#{app_id}"
+      "https://itunes.apple.com/app/id#{app_id}"
     end
     app_url
   end

@@ -1,7 +1,7 @@
 # encoding: utf-8
 class ScreenshotUploader < BaseUploader
   
-  process :resize_to_limit => [640, nil]
+  process :resize_to_limit => [1280, nil]
   
   def filename
     if super.present?
