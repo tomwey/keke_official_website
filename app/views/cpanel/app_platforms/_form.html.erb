@@ -6,10 +6,19 @@
     <%= f.input :app_info_id, :label => "所属应用", :collection => AppInfo.all.map { |app| [app.name, app.id] }, :prompt => "--选择所属的应用名--" %>
     <%= f.input :version, :label => "版本号" %>
     <%= f.input :download, :label => "应用包", :as => :file %>
-    <%= f.input :app_id, :label => "Apple Id", :hint => "如果是iOS版，那么需要提供Apple Id" %>
-    <div class="controls">
-      <%= link_to_add_fields "添加产品截图", f, :screenshots %>
+    <%= f.input :app_id, :label => "Apple Id", :hint => "如果是iOS版，那么需要提供Apple Id" %> 
+    
+    <legend>截图信息</legend>
+    <%= f.fields_for :screenshots do |builder| %>
+      <%= render "/app_infos/screenshot_fields", :f => builder  %>
+    <% end %>
+    
+    <div class="control-group">
+      <div class="controls">
+        <%= link_to_add_fields "添加一个产品截图信息", f, :screenshots %>
+      </div>
     </div>
+    
     <div class="form-actions">
       <%= f.submit "保存", :disable_with => "正在提交...", :class => "btn btn-success" %>
       <%= link_to "返回", :back, :class => "btn" %>

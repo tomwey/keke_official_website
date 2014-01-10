@@ -10,6 +10,6 @@ function add_fields(link, association, content) {
 }
 
 function remove_fields(link) {
-  $(link).previous("input[type=hidden]").value = "1"
-  $(link).parent("#upload-control").hide();
+  $(link).previous("input[type=hidden]").value = "1";
+  $("#upload-control").hide();
 }

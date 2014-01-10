@@ -10,6 +10,7 @@ class Cpanel::AppPlatformsController < Cpanel::ApplicationController
   
   def new
     @app_platform = AppPlatform.new
+    3.times { @app_platform.screenshots.build }
   end
   
   def create

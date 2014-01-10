@@ -9,8 +9,12 @@ class AppPlatform < ActiveRecord::Base
   
   mount_uploader :download, AppUploader
   
-  has_many :screenshots
-  accepts_nested_attributes_for :screenshots, :reject_if => lambda { |a| a[:image].blank? }, :allow_destroy => true
+  has_many :screenshots, :dependent => :destroy
+  accepts_nested_attributes_for :screenshots, :reject_if => :reject_new_record, :allow_destroy => true
+  
+  def reject_new_record
+    new_record? and attributed[:image].blank?
+  end
   
   def app_name
     app_info.name

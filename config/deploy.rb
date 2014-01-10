@@ -1,3 +1,4 @@
+# coding: utf-8
 require "bundler/capistrano"
 
 server "112.124.48.51", :web, :app, :db, primary: true
@@ -11,6 +12,9 @@ set :use_sudo, false
 set :scm, "git"
 set :repository,  "git@github.com:tomwey/#{application}.git"
 set :branch, "master"
+
+# 将上传文件的目录加到shared_path，并链接到release_path下
+set :shared_children, shared_children + %w{public/uploads}
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true

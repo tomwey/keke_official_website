@@ -4,11 +4,12 @@
     <legend><%= legend %></legend>
     <%= f.input :name, :label => "应用名" %>
     <% if @app_info.icon? -%>
-      <%= image_tag(@app_info.icon.normal, :class => "offset2") %>
-
-      <label class="checkbox inline">
+    <div class="controls">
+      <%= image_tag(@app_info.icon.normal) %>
+      <!--label class="checkbox inline">
         <%= f.check_box :remove_icon %> 删除
-      </label>
+      </label-->
+    </div>
     <% end -%>
     <%= f.input :icon,:label => "应用Icon" %>
     <%= f.hidden_field :icon_cache %>

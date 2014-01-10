@@ -15,6 +15,7 @@
       user: "用户"
       app_info: "应用"
       app_platform: "平台信息"
+      screenshot: "截图"
     attributes:
       user:
         email: "Email"
@@ -28,9 +29,12 @@
         name: "平台名"
         version: "版本号"
         download: "应用包"
+      screenshot:
+        image: "图片"
     errors:
       models:
         user: "用户"
+        screenshot: "截图"
       messages:
         inclusion: "不包含于列表中"
         exclusion: "是保留关键字"
