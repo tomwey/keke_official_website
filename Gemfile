@@ -15,6 +15,8 @@ gem 'grape-entity'
 
 gem 'simple_form'
 
+gem 'jtv-apns'
+
 # 上传组件
 gem "carrierwave"
 # 图像处理
