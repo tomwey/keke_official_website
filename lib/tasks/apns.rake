@@ -1,3 +1,4 @@
+# coding: utf-8
 require 'apns'
 
 namespace :apns do
