@@ -10,7 +10,7 @@ namespace :apns do
 
     device_token = '9f1418513222308a905088bd1ac15636f74b343e59830ab21cfbbb5b14fe91e4'
 
-    APNS.send_notification(device_token, 'Hello iPhone! 4567')
+    APNS.send_notification(device_token, 'Hello iPhone! 试试')
   end
   
 end
