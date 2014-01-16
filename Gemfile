@@ -15,7 +15,8 @@ gem 'grape-entity'
 
 gem 'simple_form'
 
-gem 'jtv-apns'
+# gem 'jtv-apns'
+gem 'grocer'
 
 # 上传组件
 gem "carrierwave"
