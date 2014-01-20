@@ -72,5 +72,35 @@ module KeKe
       
     end # end tracks
     
+    # 推送注册接口
+    resources :push_gateway do
+      # iOS推送注册接口
+      params do
+        requires :token, type: String, desc: "64字节的device token"
+        requires :key, type: String, desc: "应用程序key"
+      end
+      
+      post '/register' do
+        ap = AppPlatform.find_by_app_key(params[:key])
+        if ap.blank?
+          return render_404_json
+        end
+        
+        dt = DeviceToken.where(:token => params[:token]).first
+        unless dt
+          dt = DeviceToken.new(:token => params[:token])
+          dt.app_platform = ap
+          if dt.save
+            render_success
+          else
+            render_error_json_no_data(4001, "注册推送失败")
+          end
+        else
+          render_error_json_no_data(4001, "该设备已经注册")
+        end
+      end # end iOS推送注册
+      
+    end # end 推送注册接口
+    
   end
 end

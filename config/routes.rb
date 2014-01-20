@@ -22,6 +22,8 @@ KekeOfficialWebsite::Application.routes.draw do
     resources :banners, :path => :ads
     resources :feedbacks, only: [:index, :show, :destroy]
     resources :tracks, only: [:index, :destroy]
+    resources :device_tokens, only: [:index, :destroy] 
+    resources :twits, only: [:index, :new, :create]
   end
   
   mount KeKe::API => "/"

@@ -20,6 +20,10 @@ class AppPlatform < ActiveRecord::Base
     app_info.name
   end
   
+  def app_platform_and_name
+    "#{app_name}-#{name}"
+  end
+  
   before_create :generate_app_key
   def generate_app_key
     self.app_key = SecureRandom.uuid.gsub(/-/, '')

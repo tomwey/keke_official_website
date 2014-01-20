@@ -31,8 +31,8 @@ namespace :apns do
     
     notification = Grocer::Notification.new(
       device_token:      "9f1418513222308a905088bd1ac15636f74b343e59830ab21cfbbb5b14fe91e4",
-      alert:             "推送试试",
-      badge:             123,
+      alert:             "推送试试111111",
+      badge:             0,
       sound:             "siren.aiff",         # optional
       expiry:            Time.now + 60*60,     # optional; 0 is default, meaning the message is not stored
       identifier:        1234,                 # optional
