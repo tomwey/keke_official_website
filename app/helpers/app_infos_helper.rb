@@ -10,6 +10,22 @@ module AppInfosHelper
     end
   end
   
+  def render_apps(collection, cell_count = 3, partial = "app_info")
+    html = ""
+    collection.each_with_index do |item, index|
+      if index % cell_count == 0
+        html += '<div class="row-fluid">'
+      end
+      
+      html += render :partial => partial, :locals => { :item => item }
+      
+      if index % cell_count == cell_count - 1
+        html += "</div>"
+      end
+    end
+    html.html_safe
+  end
+  
   def app_info_icon_tag(app_info, size = :normal, opts = {})
     link = opts[:link] || true
     

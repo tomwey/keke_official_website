@@ -1,0 +1,14 @@
+<% content_for :styles do %>
+  <%= stylesheet_link_tag "questions" %>
+<% end %>
+
+<div class="caption">
+  <h2>常见问题</h2>
+</div>
+
+<div class="box">
+  <div class="container">
+    <%= render_apps(@questions, 2, "question") %>
+  </div>
+</div>
+

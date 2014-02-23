@@ -2,14 +2,22 @@
   <%= stylesheet_link_tag "apps" %>
 <% end %>
 
-<div class="intro-head">
-  <div class="container intro-detail">
-    <%= raw SiteConfig.product_head_html %>
-  </div> 
+<div class="caption">
+  <h2>产品与服务</h2>
 </div>
 
-<div class="container apps movedown-90">
-  <div class="row">
-    <%= render @app_infos %>
+<div id="product" class="box">
+  <div class="container">
+    <div class="apps">
+      <h4>我们一直致力与做出更好用的应用</h4>
+      <%= render_apps(@app_infos) %>
+    </div>
+  
+    <div class="games">
+      <h4>我们也做一些游戏，但绝不是玩玩而已</h4>
+      <%= render_apps(@app_infos) %>
+    </div>
   </div>
 </div>
+
+

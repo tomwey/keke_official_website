@@ -13,6 +13,8 @@ KekeOfficialWebsite::Application.routes.draw do
   
   resources :app_infos, :path => :apps
   resources :links
+  resources :questions, :only => [:index]
+  resources :contacts, :path => :feedbacks, :only => [:new, :create]
   
   namespace :cpanel do
     root to: "home#index"
@@ -24,6 +26,7 @@ KekeOfficialWebsite::Application.routes.draw do
     resources :tracks, only: [:index, :destroy]
     resources :device_tokens, only: [:index, :destroy] 
     resources :twits, only: [:index, :new, :create]
+    resources :questions
   end
   
   mount KeKe::API => "/"

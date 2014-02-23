@@ -1,66 +1,144 @@
+$navbarBackground: white;
+$navbarBackgroundHighlight: white;
+$navbarText: black;
+$navbarBrandColor: black;
+$navbarLinkColor: black;
+$navbarLinkColorHover: rgb(45,175,82);
+$navbarLinkColorActive: $navbarLinkColorHover;
+$textColor: black;
+//$navbarLinkBackgroundHover: green;
+//$navbarLinkBackgroundActive: green;
+//$navbarSearchBackground
+//$navbarSearchBackgroundFocus
+//$navbarSearchBorder
+//$navbarSearchPlaceholderColor
+//$navbarCollapseWidth
+//$navbarCollapseDesktopWidth
+
+@import "bootstrap";
 /*
- *= require bootstrap
  *= require_self
  */
 
 /* GLOBAL STYLES
 ----------------------------------------------------- */
 /* Padding below the footer and lighter body text */
+html {
+  height: 100%;
+}
+
 body {
-//  padding-bottom: 40px;
+  height: 100%;
   color: #5a5a5a;
-//  height: 100%;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 940px;
+}
+
+.green {
+  color: rgb(45,175,82);
+}
+
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by it's height */
+  margin: 0 auto -60px;
+}
+
+#push {
+  height: 60px;
+}
+
+.navbar {
+  padding-top: 20px;
+}
+
+.navbar-inner {
+  background: none !important; 
+  border: 0 !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+
+#footer {
+  height: 60px;
+//  background-color: #f5f5f5;
+  /* Custom page CSS
+  -------------------------------------------------- */
+  /* Not required for template or sticky footer method. */
+
+  .container {
+    width: auto;
+    border-top: 1px solid #ccc;
+    max-width: 940px;
+  }
+  .container .credit {
+    margin: 20px 0;
+  }
+}     
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+  #footer {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 /* CUSTOMIZE THE NAVBAR 
 ------------------------------------------------------ */
 
-/* Special class on .container surrounding .navbar, used for positioning it into place. */
-.navbar-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-  margin-top: 20px;
-  margin-bottom: -90px; /* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
-}
-
-.navbar-wrapper .navbar {
-}
-
-/* Remove border and change up box shadow for more contrast */
-.navbar .navbar-inner {
-  border: 0;
-  -webkit-box-shadow: 0 2px 10px rgba(0,0,0,.25);
-     -moz-box-shadow: 0 2px 10px rgba(0,0,0,.25);
-          box-shadow: 0 2px 10px rgba(0,0,0,.25);
-}
-
-/* Downsize the brand/project name a bit */
-.navbar .brand {
-  padding: 16px 20px 16px; /* Increase vertical padding to match navbar links */
-  font-size: 16px;
-  font-weight: bold;
-  text-shadow: 0 -1px 0 rgba(0,0,0,.5);
-}
-
-/* Navbar links: increase padding for taller navbar */
-.navbar .nav > li > a {
-  padding: 15px 20px;
-}
-
-/* Offset the responsive button for proper vertical alignment */
-.navbar .btn-navbar {
-  margin-top: 10px;
-}
+///* Special class on .container surrounding .navbar, used for positioning it into place. */
+//.navbar-wrapper {
+//  position: absolute;
+//  top: 0;
+//  left: 0;
+//  right: 0;
+//  z-index: 10;
+//  margin-top: 20px;
+//  margin-bottom: -90px; /* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
+//}
+//
+//.navbar-wrapper .navbar {
+//}
+//
+///* Remove border and change up box shadow for more contrast */
+//.navbar .navbar-inner {
+//  border: 0;
+//  -webkit-box-shadow: 0 2px 10px rgba(0,0,0,.25);
+//     -moz-box-shadow: 0 2px 10px rgba(0,0,0,.25);
+//          box-shadow: 0 2px 10px rgba(0,0,0,.25);
+//}
+//
+///* Downsize the brand/project name a bit */
+//.navbar .brand {
+//  padding: 16px 20px 16px; /* Increase vertical padding to match navbar links */
+//  font-size: 16px;
+//  font-weight: bold;
+//  text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+//}
+//
+///* Navbar links: increase padding for taller navbar */
+//.navbar .nav > li > a {
+//  padding: 15px 20px;
+//}
+//
+///* Offset the responsive button for proper vertical alignment */
+//.navbar .btn-navbar {
+//  margin-top: 10px;
+//}
 
 
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 
-/* Carousel base class */
+/* Carousel base class 
 .carousel {
 //  width: 80%;
   width: 1280px;
@@ -122,12 +200,11 @@ body {
 }
 .carousel-caption .btn {
   margin-top: 10px;
-}
+}*/
 
 /* Main marketing message and sign up button */
 .jumbotron {
-  margin: 80px 0;
-  margin-top: 0;
+  margin-top: 20px;
   text-align: center;
   h1 {
     font-size: 40px;
@@ -225,38 +302,38 @@ body {
 
 }
 
-footer {
-  color: /*#5a5a5a*/rgb(153,153,153);
-  padding-top: 15px;
-  margin-top: 10px;
-  background: rgb(42,42,42);
-  .container {
-    //border-top: 1px solid #ccc;
-    padding-top: 20px;
-  }
-  .copyright {
-    margin-top: 20px;
-    text-align: center;
-    padding-top: 15px;
-    border-top: 1px solid rgb(60,60,60);
-  }
-  
-  .share-btn {
-    width: 48px;
-    height: 48px;
-    opacity: 1;
-    transition: opacity .25s ease-in-out;
-    -moz-transition: opacity .25s ease-in-out;
-    -webkit-transition: opacity .25s ease-in-out;
-    &:hover {
-      opacity: 0.5;
-    };
-  }
-  
-  a {
-    color: /*#5a5a5a*/rgb(153,153,153);
-    &:hover {
-      color:white;
-    }
-  }
-}
+//footer {
+//  color: /*#5a5a5a*/rgb(153,153,153);
+//  padding-top: 15px;
+//  margin-top: 10px;
+//  background: rgb(42,42,42);
+//  .container {
+//    //border-top: 1px solid #ccc;
+//    padding-top: 20px;
+//  }
+//  .copyright {
+//    margin-top: 20px;
+//    text-align: center;
+//    padding-top: 15px;
+//    border-top: 1px solid rgb(60,60,60);
+//  }
+//  
+//  .share-btn {
+//    width: 48px;
+//    height: 48px;
+//    opacity: 1;
+//    transition: opacity .25s ease-in-out;
+//    -moz-transition: opacity .25s ease-in-out;
+//    -webkit-transition: opacity .25s ease-in-out;
+//    &:hover {
+//      opacity: 0.5;
+//    };
+//  }
+//  
+//  a {
+//    color: /*#5a5a5a*/rgb(153,153,153);
+//    &:hover {
+//      color:white;
+//    }
+//  }
+//}

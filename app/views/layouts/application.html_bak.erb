@@ -24,13 +24,18 @@
 </head>
 <%= render_body_tag %>
   
-  <div id="wrap">
-    <%= render 'common/header' %>
-      <!--div class="container">
-        <%= notice_message %>
-      </div-->
-      <%= yield :notice_message %>
-      <%= yield %>
+  <%= render 'common/header' %>
+  
+  <%= yield :carousel %>
+  
+  <!-- Marketing messaging and featurettes
+  ================================================== -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
+  
+
+  <div class="marketing">
+    <%= notice_message %>
+    <%= yield %>
   </div>
   
   <%= render 'common/footer' %>

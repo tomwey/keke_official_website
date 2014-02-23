@@ -1,0 +1,53 @@
+<% content_for :styles do %>
+  <%= stylesheet_link_tag "contacts" %>
+<% end %>
+
+<div class="caption">
+  <h2>意见反馈</h2>
+</div>
+
+<div class="box">
+<div class="container">
+  <div class="row">
+    <%= notice_message %>
+    <div class="span8">
+      <div class="form-box">
+      <%= form_for @contact, html: { :class => "form-horizontal"} do |f| %>
+        <div class="control-group">
+          <%= f.label :name, "昵称", :class => "control-label" %>
+          <div class="controls">
+            <%= f.text_field :name, :class => "input-xlarge" %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :email, "电子邮箱", :class => "control-label" %>
+          <div class="controls">
+            <%= f.text_field :email, :class => "input-xlarge" %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :content, "内容", :class => "control-label" %>
+          <div class="controls">
+            <%= f.text_area :content, :rows => 8, :class => "input-xlarge" %>
+          </div>
+        </div>
+        
+        <div class="control-group">
+          <div class="controls">
+            <%= f.submit '  发送  ', :class => "btn btn-success btn-large", :disable_with => "正在提交..." %>
+          </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+    <div class="span3">
+      <div class="right-sidebar">
+        <p class="green">致谢：</p>
+        <p>你们的意见是我们前进的基石，我们很看重你们提的每一个意见，对我们至关重要。</p>
+        <p>再次感谢你们的意见！</p>
+      </div>
+    </div>
+  </div>
+  </div>
+  
+</div>

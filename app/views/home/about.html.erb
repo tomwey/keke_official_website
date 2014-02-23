@@ -1,52 +1,31 @@
-<div class="intro-head">
-  <div class="container intro-detail">
-    <%= raw SiteConfig.about_head_html %>
-  </div> 
+<% content_for :styles do %>
+  <%= stylesheet_link_tag "aboutus" %>
+<% end %>
+
+<div class="caption">
+  <h2>关于我们</h2>
 </div>
 
-<div class="container about-intro">
-  <h2>小伙伴们:</h2>
-  <div class="avatar">
-      <a href="#" rel="tooltip" data-placement="top" title="斌哥">
-        <%= image_tag "about_bg.png", class: "avatar-image" %>
-      </a>
-      
-      <a href="#" rel="tooltip" data-placement="top" title="波波">
-        <%= image_tag "about_bg.png", class: "avatar-image" %>
-      </a>
-      
-      <a href="#" rel="tooltip" data-placement="top" title="少杰">
-        <%= image_tag "about_bg.png", class: "avatar-image" %>
-      </a>
-      
-      <a href="#" rel="tooltip" data-placement="top" title="妹子">
-        <%= image_tag "about_bg.png", class: "avatar-image" %>
-      </a>
-      
-      <a href="#" rel="tooltip" data-placement="top" title="飞飞">
-        <%= image_tag "about_bg.png", class: "avatar-image" %>
-      </a>
-      
-      <a href="#" rel="tooltip" data-placement="top" title="上尉">
-        <%= image_tag "about_bg.png", class: "avatar-image" %>
-      </a>
-      
-      <a href="#" rel="tooltip" data-placement="top" title="阿伟">
-        <%= image_tag "about_bg.png", class: "avatar-image" %>
-      </a>
+<div class="box">
+  <div class="container">
+    <div class="row">
+      <div class="span8">
+        <section class="aboutus">
+          <p>有人说我们是一群屌丝，也有人对我们竖起大拇指，但这都不关紧要，我们在做一些我们觉得有意义的事情。</p>
+          <p>大家好：我的名字叫keke（小可），全称：kekestudio。在百度或者App Store上可以找到我。</p>
+          <p>今年小可2岁多了，虽然小可名气还不大，但这不重要，因为小可在制造“火箭”，这是高保密的工作。如果你是一直关注小可走过来的那个她的话，你一定知道，小可在慢慢长大。</p>
+          <p>小可常常会在成都的某个角落里一起“指点江山”，或者“谋划未来”。也许我们不太有时间出来谈恋爱，但我们同样有爱美之心，app就是我们最好的女朋友，不同点在于，我们在倾心打造自己的女神。</p>
+          <p>小可感谢大家的关注，小可将会为你们创造更多更好更强大的app。</p>
+          <p>最后，小可祝大家新年快乐，马到成功！</p>
+        </section>
+      </div>
+      <div class="span4">
+        <p class="green">联系我们：</p>
+        <p>欢迎给我来信：kekestudio@sina.com</p>
+        <p>关注我们sina微博：可可工作室</p>
+        <p>欢迎来电：13678152312</p>
+      </div>
+    </div>
   </div>
-  
-</div> 
-
-<% content_for :scripts do %>
-<script type="text/javascript">
-    
-    
-    $(document).ready(function () {
-        if ($("[rel=tooltip]").length) {
-            $("[rel=tooltip]").tooltip();
-        }
-    });
-</script>
-<% end %>
+</div>
 

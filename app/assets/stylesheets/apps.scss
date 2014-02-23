@@ -1,73 +1,31 @@
-.apps {
-  > h2 {
+#product {
+  margin-bottom: 60px;
+  h4 {
+    font-size: 18px;
+    font-weight: normal;
+    text-align: center;
+    padding-bottom: 30px;
+  }
+  .apps {
     border-bottom: 1px solid #ccc;
-    margin-bottom: 30px;
   }
-  .row {
-    border: 0;
-  }
-}
-
-.app-info {
-  section {
-    .quote {
-      font-size: 60;
-      font-weight: bold;
-    }
-  }
-  
-  img {
-//    border: 1px solid #ccc;
-    padding: 2px;
-    border-radius: 20px;
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
-  }
-  ul {
-    padding-top: 10px;
-    margin-left: 130px;
-    li {
-      padding-bottom: 2px;
-    }
+  .games {
+    padding-top: 30px;
   }
 }
 
-.app-info-cell {
-  margin-top: 20px;
-  margin-bottom: -20px;
-  .app-info-screenshot {
-    padding: 20px 0;
-    .container-centered {
-      //display: table;
-//      width: 100%;
-      .centered {
-        text-align: center;
-      }
-      .centered:before {
-        content: '';
-        display: inline-block;
-        height: 100%;
-        margin-right: -0.25em;
-        vertical-align: middle;
-      }
-    }
-    
+.app-detail {
+  padding-bottom: 20px;
+  h2 {
+//    font-weight: normal;
+    font-size: 14px;
   }
-  .app-info-screenshot-0 {
-    background: #eee;
+  p {
+    color: #999;
   }
-  
-}
-
-.app-info-screenshot:before, .description {
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.app-info-screenshot:before {
-  content: '';
-  display: inline-block;
-  width: 0;
-  height: 100%;
-  vertical-align: middle;
+  .app-icon {
+//    text-align: center;
+//    width: inherit;
+//    height: 130px;
+  }
 }
