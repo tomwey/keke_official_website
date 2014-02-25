@@ -1,15 +1,43 @@
-<div class="banner-container">
-  <div class="container">
-    <div class="row">
-      <div class="span6">
-        
+<% content_for :carousel do %>
+<!-- Carousel
+================================================== -->
+<div id="myCarousel" class="carousel slide">
+  <div class="carousel-inner">
+    <% @banners.each_with_index do |banner, index| %>
+    <div class="item <%= "active" if index == 0 %>">
+      <%= link_to app_info_path(banner.app_info) do %>
+      <%= image_tag(banner.screenshot_url) %> 
+      <div class="container">
+        <div class="carousel-caption">
+          <h1><%= banner.title %></h1>
+          <p class="lead"><%= banner.summary %></p>
+        </div>
       </div>
-      <div class="span3">
-        
-      </div>
+      <% end %>
     </div>
+    <% end %>
   </div>
-</div>
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div><!-- /.carousel -->
+<% end %>
+
+<% content_for :scripts do %>
+
+<script>
+      !function ($) {
+        $(function(){
+          // carousel demo
+          $('#myCarousel').carousel()
+        })
+      }(window.jQuery)
+</script>
+
+<% end %>
+
+<!-- Three columns of text below the carousel -->
 <div class="container">
+  
   <%= raw SiteConfig.jumbotron_html %>
+  
 </div>
