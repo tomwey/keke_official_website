@@ -3,6 +3,7 @@
   <fieldset>
     <legend><%= legend %></legend>
     <%= f.input :name, :label => "应用名" %>
+    <%= f.input :app_type, :label => "产品类别", :collection => AppInfo::APP_TYPE %>
     <% if @app_info.icon? -%>
     <div class="controls">
       <%= image_tag(@app_info.icon.normal) %>

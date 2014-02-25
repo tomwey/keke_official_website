@@ -1,7 +1,8 @@
+# coding: utf-8
 class AppInfo < ActiveRecord::Base
-  attr_accessible :description, :icon, :name, :remove_icon, :icon_cache
+  attr_accessible :description, :icon, :name, :remove_icon, :icon_cache, :app_type
   
-  validates_presence_of :name, :description
+  validates_presence_of :name, :description, :app_type
   # validates_uniqueness_of :bundle_id, :app_id, :package_name
   
   # validates :bundle_id, uniqueness: true, allow_nil: true
@@ -12,6 +13,8 @@ class AppInfo < ActiveRecord::Base
   
   has_many :app_platforms, :dependent => :destroy
   # accepts_nested_attributes_for :app_platforms
+  
+  APP_TYPE = [['应用',0], ['游戏', 1]]
   
   def platform
     app_platforms.map { |app_platform| app_platform.name }.join(',')
