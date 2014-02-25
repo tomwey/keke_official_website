@@ -12,7 +12,8 @@
     <%= notice_message %>
     <div class="span8">
       <div class="form-box">
-      <%= form_for @contact, html: { :class => "form-horizontal"} do |f| %>
+      <%= simple_form_for @contact, html: { :class => "form-horizontal"} do |f| %>
+        <%= render "shared/error_messages", :target => @contact %>
         <div class="control-group">
           <%= f.label :name, "昵称", :class => "control-label" %>
           <div class="controls">
@@ -26,7 +27,7 @@
           </div>
         </div>
         <div class="control-group">
-          <%= f.label :content, "内容", :class => "control-label" %>
+          <%= f.label :content, "* 内容", :class => "control-label" %>
           <div class="controls">
             <%= f.text_area :content, :rows => 8, :class => "input-xlarge" %>
           </div>

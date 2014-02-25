@@ -16,6 +16,7 @@
       app_info: "应用"
       app_platform: "平台信息"
       screenshot: "截图"
+      contact: "意见反馈"
     attributes:
       user:
         email: "Email"
@@ -31,6 +32,8 @@
         download: "应用包"
       screenshot:
         image: "图片"
+      contact:
+        content: "反馈内容"
     errors:
       models:
         user: "用户"
