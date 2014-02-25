@@ -14,12 +14,12 @@ module AppInfosHelper
     html = ""
     collection.each_with_index do |item, index|
       if index % cell_count == 0
-        html += '<div class="row-fluid">'
+        html += '<div class="row">'
       end
       
       html += render :partial => partial, :locals => { :item => item }
       
-      if index % cell_count == cell_count - 1
+      if index % cell_count == cell_count - 1 or index == collection.size - 1
         html += "</div>"
       end
     end
