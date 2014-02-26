@@ -2,7 +2,7 @@
   <div class="container">
     <div class="credit">
       <p class="pull-left">
-        Copyright &copy; <%= Time.now.year %> <%= Setting.app_name %> Studio. All Rights Reserved 
+        Copyright &copy; <%= Time.now.year %> <%= raw SiteConfig.footer_html %>
       </p>
       <div class="pull-right"><%= raw SiteConfig.share_html %></p>
     </div>

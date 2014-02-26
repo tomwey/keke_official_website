@@ -4,6 +4,19 @@ class Cpanel::SiteConfigsController < Cpanel::ApplicationController
     @site_configs = SiteConfig.order("id DESC")
   end
   
+  def new
+    @site_config = SiteConfig.new()
+  end
+  
+  def create
+    @site_config = SiteConfig.new(params[:site_config])
+    if @site_config.save
+      redirect_to edit_cpanel_site_config_path(@site_config), :notice => "配置创建成功"
+    else
+      render :new
+    end
+  end
+  
   def edit
     @site_config = SiteConfig.find(params[:id])
   end

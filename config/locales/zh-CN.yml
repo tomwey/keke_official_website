@@ -9,6 +9,9 @@
     share_html: "关注我们 HTML"
     product_head_html: "产品页头部描述 HTML"
     about_head_html: "关于我们头部描述 HTML"
+    footer_html: "页脚描述 HTML"
+    aboutus_html: "团队介绍 HTML"
+    thank_html: "致谢描述 HTML"
     
   activerecord:
     models:
