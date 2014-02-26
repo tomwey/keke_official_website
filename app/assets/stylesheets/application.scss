@@ -137,6 +137,13 @@ body {
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
+$box-shadow-color: #bbb;
+.carousel-container {
+  background: rgb(254,254,254);//hsv(0, 45,85);//rgb(31,136,136);
+  -webkit-box-shadow: 0px 2px 6px $box-shadow-color;
+  -moz-box-shadow: 0px 2px 6px $box-shadow-color;
+  box-shadow: 0px 3px 5px $box-shadow-color;
+}
 
 /* Carousel base class */
 .carousel {
@@ -187,6 +194,7 @@ body {
 }
 
 .carousel-caption {
+  display: none;
   background-color: transparent;
   position: static;
   max-width: 550px;
@@ -210,19 +218,24 @@ body {
 /* Main marketing message and sign up button */
 .jumbotron {
 //  margin-top: 20px;
-  text-align: center;
+  background: rgb(239,238,235);
+  margin-top: -25px;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+//  text-align: center;
   h1 {
     font-size: 40px;
     line-height: 1.1;
   }
   .lead {
-    font-size: 24px;
+    font-size: 20px;
     line-height: 1.25;
   }
-  .btn {
-      font-size: 21px;
-      padding: 14px 24px;
-  }
+  //.btn {
+//      font-size: 21px;
+//      padding: 14px 24px;
+//  }
 }
 
 /* RESPONSIVE CSS

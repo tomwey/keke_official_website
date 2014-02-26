@@ -1,13 +1,16 @@
 <% content_for :carousel do %>
 <!-- Carousel
 ================================================== -->
-<div id="myCarousel" class="carousel slide">
+<div class="carousel-container">
+  <div id="myCarousel" class="carousel slide">
   <div class="carousel-inner">
     <% @banners.each_with_index do |banner, index| %>
     <div class="item <%= "active" if index == 0 %>">
       <%= link_to app_info_path(banner.app_info) do %>
       <%= image_tag(banner.screenshot_url) %> 
       <div class="container">
+        <div class="hack-caption">
+        </div>
         <div class="carousel-caption">
           <h1><%= banner.title %></h1>
           <p class="lead"><%= banner.summary %></p>
@@ -20,6 +23,7 @@
   <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
   <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
 </div><!-- /.carousel -->
+</div>
 <% end %>
 
 <% content_for :scripts do %>
@@ -37,10 +41,14 @@
 
 <!-- Three columns of text below the carousel -->
 <div class="box">
+  <%= raw SiteConfig.jumbotron_html %>
+  <% if @questions.any? %>
   <div class="container">
-  
-    <%= raw SiteConfig.jumbotron_html %>
-  
+    <div class="latest-questions">
+      <h1>常见问题</h1>
+      <%= render_apps(@questions, 3, "question") %>
+    </div>
   </div>
+  <% end %>
 </div>
 

@@ -13,10 +13,11 @@
   </div> 
 </div>
 
+
 <div class="container app-info">
     <section><p><%= image_tag "yinhao1.png" %><%= @app.description %><%= image_tag "yinhao2.png" %></p></section>
 </div>
-
+<div class="box">
 <div class="app-info-cell">
     <% @app.screenshots.each_with_index do |screenshot, index| %>
       <div class="app-info-screenshot app-info-screenshot-<%= index % 2 %>">
@@ -43,4 +44,5 @@
         </div>
       </div>
     <% end %>
+</div>
 </div>

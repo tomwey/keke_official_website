@@ -1,0 +1,25 @@
+<% content_for :sitemap do %>
+  <span class="current">常见问题</span>
+<% end %>
+
+<%= render_header_list("常见问题列表", "新建问题", "/cpanel/questions/new" ) %>
+
+<table class="table table-hover">
+  <tr>
+    <th>ID</th>
+    <th>问题</th>
+    <th>回复</th>
+    <th>at</th>
+    <th></th>
+  </tr>
+
+<% @questions.each do |twit| %>
+  <tr>
+    <td><%= twit.id %></td>
+    <td><%= twit.title %></td>
+    <td><%= twit.reply %></td>
+    <td><%= l twit.created_at, :format => :short %></td>
+    <td><%= link_to '删除', cpanel_question_path(twit), :class => "btn btn-danger btn-mini", :confirm => "Are you sure?", :method => :delete %></td>
+  </tr>
+<% end %>
+</table>

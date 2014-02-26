@@ -18,3 +18,22 @@
   padding-top: 30px;
   padding-bottom: 60px;
 }
+
+.latest-questions {
+  h1 {
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    border-bottom: 1px dotted #ccc;
+  }
+  padding: 20px 0;
+  .question-detail {
+    h4 {
+      font-size: 16px;
+      padding: 5px 0;
+    }
+    p {
+      font-size: 14px;
+      color: gray;
+    }
+  }
+}
