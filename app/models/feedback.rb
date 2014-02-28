@@ -3,10 +3,10 @@ class Feedback < ActiveRecord::Base
   
   validates_presence_of :content
   
-  belongs_to :app_platform
+  belongs_to :app
   
   def app_info
-    "#{app_platform.app_name} - #{app_platform.name}"
+    "#{app.name} - #{render_app_os_name(app)}"
   end
   
 end

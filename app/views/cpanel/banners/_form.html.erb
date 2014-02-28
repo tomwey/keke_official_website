@@ -4,7 +4,7 @@
     <legend><%= legend %></legend>
     <%= f.input :title, :label => "标题" %>
     <%= f.input :summary, :label => "简介", :input_html => { :class => "span6" } %>
-    <%= f.input :app_info_id, :label => "所属应用", :collection => AppInfo.all.map { |app| [app.name, app.id] }, :prompt => "--选择应用--" %>
+    <%= f.input :app_id, :label => "所属应用", :collection => App.all.map { |app| [app.name, app.id] }, :prompt => "--选择应用--" %>
     <%= f.input :screenshot, :label => "广告图片", :as => :file %>
     <% if @banner.screenshot? -%>
     <div class="controls">

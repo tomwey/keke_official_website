@@ -1,10 +1,10 @@
 class DeviceToken < ActiveRecord::Base
-  attr_accessible :app_platform_id, :token
+  attr_accessible :app_id, :token
   
-  belongs_to :app_platform
+  belongs_to :app
   
   def app_name
-    app_platform.app_name
+    app.name
   end
   
 end

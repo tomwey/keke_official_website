@@ -11,7 +11,7 @@ KekeOfficialWebsite::Application.routes.draw do
   # match '/apps' => 'home#apps', :via => :get, :as => 'apps'
   match '/about' => 'home#about', :via => :get, :as => 'about'
   
-  resources :app_infos, :path => :apps
+  resources :apps, :only => [:index, :show]
   resources :links
   resources :questions, :only => [:index]
   resources :contacts, :path => :feedbacks, :only => [:new, :create]
@@ -19,8 +19,9 @@ KekeOfficialWebsite::Application.routes.draw do
   namespace :cpanel do
     root to: "home#index"
     resources :site_configs
-    resources :app_infos, :path => :apps 
-    resources :app_platforms, :path => :platforms
+    resources :apps
+    # resources :app_infos, :path => :apps 
+    # resources :app_platforms, :path => :platforms
     resources :banners, :path => :ads
     resources :feedbacks, only: [:index, :show, :destroy]
     resources :tracks, only: [:index, :destroy]

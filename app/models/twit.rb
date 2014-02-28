@@ -1,13 +1,13 @@
 # coding: utf-8
 class Twit < ActiveRecord::Base
-  attr_accessible :app_platform_id, :content, :sound, :badge, :is_debug
+  attr_accessible :app_id, :content, :sound, :badge, :is_debug
   
-  validates_presence_of :app_platform_id, :content
+  validates_presence_of :app_id, :content
   
-  belongs_to :app_platform
+  belongs_to :app
   
   def app_name
-    app_platform.app_name
+    app.name
   end
   
   before_save :send_twit
@@ -21,7 +21,7 @@ class Twit < ActiveRecord::Base
       retries:     3                      # optional
     )
     
-    tokens = DeviceToken.where(:app_platform_id => self.app_platform_id)
+    tokens = DeviceToken.where(:app_id => self.app_id)
     tokens.each do |token|
       notification = Grocer::Notification.new(
         device_token:      token.token,

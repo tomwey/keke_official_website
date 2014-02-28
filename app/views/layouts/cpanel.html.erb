@@ -14,8 +14,7 @@
         <%= link_to "控制台", cpanel_root_path, :class => "brand" %>
         <%= render_list :class => "nav" do |li| 
         li << link_to('站点配置', cpanel_site_configs_path)
-        li << link_to('应用程序', cpanel_app_infos_path)
-        li << link_to('平台', cpanel_app_platforms_path)
+        li << link_to('App信息', cpanel_apps_path)
         li << link_to('广告', cpanel_banners_path)
         li << link_to('用户反馈', cpanel_feedbacks_path)
         li << link_to('数据统计', cpanel_tracks_path)

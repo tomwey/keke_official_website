@@ -1,0 +1,30 @@
+<div id="upload-control">
+  <div class="control-group">
+    <%= f.label :title, "标题", :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :title %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, "简介", :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :description %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :image, "产品截图", :class => "control-label" %>
+    <div class="controls">
+      <%= f.file_field :image %>
+    </div>
+    <% if f.object.image? -%>
+    <div class="controls">
+      <%= image_tag f.object.image.url %>
+      </div>
+    <% end -%>
+    <div class="controls">
+      <label class="checkbox inline">
+        <%= f.check_box :_destroy %> 删除截图信息
+      </label>
+    </div>
+  </div>
+</div>

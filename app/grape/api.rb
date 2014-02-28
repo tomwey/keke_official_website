@@ -19,7 +19,7 @@ module KeKe
         optional :ov, type: String, desc: "设备系统版本号，例如6.1.3"
       end
       post do
-        ap = AppPlatform.find_by_app_key(params[:key])
+        ap = App.find_by_app_key(params[:key])
         if ap.blank?
           return render_404_json
         end
@@ -45,7 +45,7 @@ module KeKe
       end
       
       post do
-        ap = AppPlatform.find_by_app_key(params[:key])
+        ap = App.find_by_app_key(params[:key])
         if ap.blank?
           return render_404_json
         end
@@ -81,7 +81,7 @@ module KeKe
       end
       
       post '/register' do
-        ap = AppPlatform.find_by_app_key(params[:key])
+        ap = App.find_by_app_key(params[:key])
         if ap.blank?
           return render_404_json
         end
@@ -89,7 +89,7 @@ module KeKe
         dt = DeviceToken.where(:token => params[:token]).first
         unless dt
           dt = DeviceToken.new(:token => params[:token])
-          dt.app_platform = ap
+          dt.app = ap
           if dt.save
             render_success
           else

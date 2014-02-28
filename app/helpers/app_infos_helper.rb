@@ -10,7 +10,7 @@ module AppInfosHelper
     end
   end
   
-  def render_apps(collection, cell_count = 3, partial = "app_info")
+  def render_apps(collection, cell_count = 3, partial = "app")
     html = ""
     collection.each_with_index do |item, index|
       if index % cell_count == 0

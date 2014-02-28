@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  intro: MyText
+  icon: MyString
+  type: 1
+  version: MyString
+  app_key: MyString
+  os_type: 1
+  app_url: MyString
+  published_at: 2014-02-28
+
+two:
+  name: MyString
+  intro: MyText
+  icon: MyString
+  type: 1
+  version: MyString
+  app_key: MyString
+  os_type: 1
+  app_url: MyString
+  published_at: 2014-02-28
