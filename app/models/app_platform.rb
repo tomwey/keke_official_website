@@ -13,7 +13,7 @@ class AppPlatform < ActiveRecord::Base
   accepts_nested_attributes_for :screenshots, :reject_if => :reject_new_record, :allow_destroy => true
   
   def reject_new_record
-    new_record? and attributed[:image].blank?
+    new_record? and self[:image].blank?
   end
   
   def app_name
