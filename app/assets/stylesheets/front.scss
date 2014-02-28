@@ -20,10 +20,11 @@
 }
 
 .latest-questions {
+  margin-top: 30px;
   h1 {
     padding-bottom: 5px;
     margin-bottom: 10px;
-    border-bottom: 1px dotted #ccc;
+    border-bottom: 1px solid #ccc;
   }
   padding: 20px 0;
   .question-detail {

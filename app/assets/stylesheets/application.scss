@@ -137,13 +137,13 @@ body {
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
-$box-shadow-color: #bbb;
-.carousel-container {
-  background: rgb(254,254,254);//hsv(0, 45,85);//rgb(31,136,136);
-  -webkit-box-shadow: 0px 2px 6px $box-shadow-color;
-  -moz-box-shadow: 0px 2px 6px $box-shadow-color;
-  box-shadow: 0px 3px 5px $box-shadow-color;
-}
+//$box-shadow-color: #bbb;
+//.carousel-container {
+//  background: rgb(254,254,254);//hsv(0, 45,85);//rgb(31,136,136);
+//  -webkit-box-shadow: 0px 2px 6px $box-shadow-color;
+//  -moz-box-shadow: 0px 2px 6px $box-shadow-color;
+//  box-shadow: 0px 3px 5px $box-shadow-color;
+//}
 
 /* Carousel base class */
 .carousel {
@@ -219,10 +219,10 @@ $box-shadow-color: #bbb;
 .jumbotron {
 //  margin-top: 20px;
   background: rgb(239,238,235);
-  margin-top: -25px;
-  padding-top: 15px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #ccc;
+  margin-top: -20px;
+  padding: 20px 20px 10px 20px;
+  border: 1px solid #ccc;
+//  border-top: none;
 //  text-align: center;
   h1 {
     font-size: 40px;
