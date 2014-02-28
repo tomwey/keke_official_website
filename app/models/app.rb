@@ -7,6 +7,8 @@ class App < ActiveRecord::Base
   
   mount_uploader :icon, ImageUploader
   
+  has_many :feedbacks
+  has_many :tracks
   
   scope :apps, where(:app_type => 0)
   scope :games, where(:app_type => 1)
