@@ -12,15 +12,21 @@ module AppsHelper
   end
   
   def render_app_type(app)
+    if app.blank?
+      return ""
+    end
     app_type = if app.app_type == 0
       "应用"
     else
       "游戏"
     end
-    app_type
+    return app_type
   end
   
   def render_app_os_name(app)
+    if app.blank?
+      return ""
+    end
     os = if app.os_type == 0
       "iOS"
     elsif app.os_type == 1
@@ -28,7 +34,7 @@ module AppsHelper
     else
       ""
     end
-    os
+    return os
   end
   
   def render_app_icon(app, size = :normal, opts = {})

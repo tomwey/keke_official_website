@@ -9,7 +9,14 @@ class Feedback < ActiveRecord::Base
     if app.blank?
       return ""
     end
-    return "#{app.name} - #{render_app_os_name(app)}"
+    
+    if app.os_type == 0
+      os = "iOS"
+    else
+      os = "Android"
+    end
+    
+    return "#{app.name} - #{os}"
   end
   
 end

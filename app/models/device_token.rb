@@ -4,7 +4,10 @@ class DeviceToken < ActiveRecord::Base
   belongs_to :app
   
   def app_name
-    app.name
+    if app.blank?
+      return ""
+    end
+    return app.name
   end
   
 end
