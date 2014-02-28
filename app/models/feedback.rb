@@ -6,7 +6,10 @@ class Feedback < ActiveRecord::Base
   belongs_to :app
   
   def app_info
-    "#{app.name} - #{render_app_os_name(app)}"
+    if app.blank?
+      return ""
+    end
+    return "#{app.name} - #{render_app_os_name(app)}"
   end
   
 end
