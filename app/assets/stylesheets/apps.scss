@@ -24,8 +24,12 @@
     color: #999;
   }
   .app-icon {
+      border-radius: 20px;
+      -moz-border-radius: 20px;
+      -webkit-border-radius: 20px;
 //    text-align: center;
 //    width: inherit;
 //    height: 130px;
+
   }
 }
