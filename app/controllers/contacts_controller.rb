@@ -2,6 +2,7 @@
 class ContactsController < ApplicationController
   def new
     @contact = Contact.new
+    @page_title = "意见反馈"
   end
   
   def create

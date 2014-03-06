@@ -4,11 +4,13 @@
  */
 
 .caption {
-  background: rgb(83,83,83);
-  height: 80px;
+  background: rgb(239,238,235);
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
   h2 {
-    color: white;
-    text-align: center;
+//    color: white;
+//    text-align: center;
+    font-weight: normal;
     height: 80px;
     line-height: 80px;
   }
