@@ -10,6 +10,8 @@ class App < ActiveRecord::Base
   has_many :feedbacks
   has_many :tracks
   
+  has_and_belongs_to_many :newsblasts
+  
   scope :apps, where(:app_type => 0)
   scope :games, where(:app_type => 1)
   scope :published, where('published_at is not null')

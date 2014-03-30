@@ -102,5 +102,28 @@ module KeKe
       
     end # end 推送注册接口
     
+    # Newsblast接口
+    resource :news do
+      params do
+        requires :key, type: String, desc: "应用程序key"
+      end
+      
+      get '/' do
+        app = App.find_by_app_key(params[:key])
+        if app.blank?
+          return render_404_json
+        end
+        
+        news = app.newsblasts.sample(1)
+        
+        unless news
+          return render_404_json
+        end
+        
+        { code: 0, message: 'ok', data: news }
+        
+      end # end news.json
+    end # end Newsblast接口
+    
   end
 end

@@ -28,6 +28,7 @@ KekeOfficialWebsite::Application.routes.draw do
     resources :device_tokens, only: [:index, :destroy] 
     resources :twits, only: [:index, :new, :create]
     resources :questions
+    resources :newsblasts
   end
   
   mount KeKe::API => "/"

@@ -1,0 +1,33 @@
+<% content_for :sitemap do %>
+  <span class="current">公告列表</span>
+<% end %>
+
+<%= render_header_list("公告列表", "新建公告", "/cpanel/newsblasts/new" ) %>
+<table class="table table-hover">
+  <tr class="head">
+    <td class="first">ID</td>
+    <td>公告标题</td>
+    <td>公告内容</td>
+    <td>公告链接</td>
+    <td>所属App</td>
+    <td>at</td>
+    <td style="width:140px"></td>
+  </tr>
+  
+  <% @newsblasts.each do |newsblast| %>
+  <tr>
+    <td class="first"><%= newsblast.id %></td>
+    <td><%= newsblast.title %></td>
+    <td><%= newsblast.content %></td>
+    <td><%= newsblast.link %></td>
+    <td><%= newsblast.apps.map {|a| a.name }.join(',') %></td>
+    <td><%= l newsblast.created_at, :format => :short %></td>
+    <td>
+      <%= link_to "编辑", edit_cpanel_newsblast_path(newsblast), :class => "btn btn-mini" %>
+      <%= link_to "删除", cpanel_newsblast_path(newsblast), :confirm => "你确定吗？", :method => :delete, :class => "btn btn-mini btn-danger" %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+
+<div style="text-align:center;"><%= will_paginate @newsblasts %></div>
