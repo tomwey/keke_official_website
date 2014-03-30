@@ -13,7 +13,7 @@
       <div class="controls">
         <% App.all.each do |app| %>
         <label class="checkbox">
-          <%= check_box_tag "newsblast[app_ids][]", app.id, @newsblast.apps.include?(app) %> <%= app.name %>
+          <%= check_box_tag "newsblast[app_ids][]", app.id, @newsblast.apps.include?(app) %> <%= "#{app.name} (#{render_app_os_name(app)})" %>
         </label>
         <% end %>
       </div>

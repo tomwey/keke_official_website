@@ -2,7 +2,7 @@
 class Cpanel::NewsblastsController < Cpanel::ApplicationController
   
   def index
-    @newsblasts = Newsblast.order('created_at DESC').paginate :page => params[:page], :per_page => 2
+    @newsblasts = Newsblast.order('created_at DESC').paginate :page => params[:page], :per_page => 30
   end
   
   def show
