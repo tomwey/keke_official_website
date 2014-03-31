@@ -5,7 +5,7 @@
     <%= f.input :title, :label => "公告标题", :input_html => { :style => "width: 400px" } %>
     
     <%= f.input :content, :label => "公告内容", as: :text, :input_html => { :style => "width: 400px", :rows => 6 } %>
-    
+    <%= f.input :news_type, :label => "公告类别", :collection => Newsblast::NEWS_TYPES, :input_html => { :style => "width: 100px" } %>
     <%= f.input :link, :label => "公告链接", :placeholder => "http://itunes.apple.com/id123456789", :input_html => { :class => "span9" } %>   
     
     <div class="control-group">
