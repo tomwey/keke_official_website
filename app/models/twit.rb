@@ -20,10 +20,10 @@ class Twit < ActiveRecord::Base
       retries:     3                      # optional
     )
     
-    # tokens = DeviceToken.where(:app_id => self.app_id)
-    # tokens.each do |token|
+    tokens = DeviceToken.where(:app_id => self.app_id)
+    tokens.each do |token|
       notification = Grocer::Notification.new(
-        device_token:      "9f1418513222308a905088bd1ac15636f74b343e59830ab21cfbbb5b14fe91e4",
+        device_token:      token,
         alert:             self.content,
         badge:             self.badge,
         sound:             self.sound_name,      # optional
@@ -33,7 +33,7 @@ class Twit < ActiveRecord::Base
       )
 
       pusher.push(notification)
-    # end
+    end
   end
   
   def sound_name
@@ -49,7 +49,11 @@ class Twit < ActiveRecord::Base
   end
   
   def certificate
-    "#{Rails.root}/config/dev-cert.pem"
+    if self.is_debug
+      "#{Rails.root}/config/dev-cert.pem"
+    else
+      "#{Rails.root}/config/prod-cert.pem"
+    end
   end
   
 end
