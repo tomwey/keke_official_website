@@ -23,7 +23,7 @@ class Twit < ActiveRecord::Base
     tokens = DeviceToken.where(:app_id => self.app_id)
     tokens.each do |token|
       notification = Grocer::Notification.new(
-        device_token:      token,
+        device_token:      token.token,
         alert:             self.content,
         badge:             self.badge,
         sound:             self.sound_name,      # optional
@@ -31,9 +31,9 @@ class Twit < ActiveRecord::Base
         identifier:        1234,                 # optional
         content_available: true                  # optional; any truthy value will set 'content-available' to 1
       )
-
       pusher.push(notification)
     end
+    
   end
   
   def sound_name
