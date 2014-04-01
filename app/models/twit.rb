@@ -12,7 +12,6 @@ class Twit < ActiveRecord::Base
   
   before_save :send_twit
   def send_twit
-    
     pusher = Grocer.pusher(
       certificate: self.certificate,      # required
       passphrase:  "123456",              # optional
@@ -21,10 +20,10 @@ class Twit < ActiveRecord::Base
       retries:     3                      # optional
     )
     
-    tokens = DeviceToken.where(:app_id => self.app_id)
-    tokens.each do |token|
+    # tokens = DeviceToken.where(:app_id => self.app_id)
+    # tokens.each do |token|
       notification = Grocer::Notification.new(
-        device_token:      token.token,
+        device_token:      "9f1418513222308a905088bd1ac15636f74b343e59830ab21cfbbb5b14fe91e4",
         alert:             self.content,
         badge:             self.badge,
         sound:             self.sound_name,      # optional
@@ -34,7 +33,7 @@ class Twit < ActiveRecord::Base
       )
 
       pusher.push(notification)
-    end
+    # end
   end
   
   def sound_name
