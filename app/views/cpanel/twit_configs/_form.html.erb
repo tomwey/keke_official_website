@@ -3,7 +3,7 @@
   <fieldset>
     <legend><%= legend %></legend>
 
-    <%= f.input :app_id, :label => "所属App", :collection => App.all.map { |a| [a.name, a.id] },  :prompt => "--请选择App--" %>
+    <%= f.input :app_id, :label => "所属App", :collection => App.all.map { |a| ["#{a.name}-#{render_app_os_name(a)}", a.id] },  :prompt => "--请选择App--" %>
     <%= f.input :dev_cert, :label => "开发环境证书" %>
     <%= f.hidden_field :dev_cert_cache %>
     
