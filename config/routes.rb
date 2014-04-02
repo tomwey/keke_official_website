@@ -29,6 +29,7 @@ KekeOfficialWebsite::Application.routes.draw do
     resources :twits, only: [:index, :new, :create]
     resources :questions
     resources :newsblasts
+    resources :twit_configs
   end
   
   mount KeKe::API => "/"

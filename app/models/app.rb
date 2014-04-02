@@ -10,6 +10,8 @@ class App < ActiveRecord::Base
   has_many :feedbacks
   has_many :tracks
   
+  has_one :twit_config
+  
   has_and_belongs_to_many :newsblasts
   
   scope :apps, where(:app_type => 0)

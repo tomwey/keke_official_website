@@ -1,0 +1,8 @@
+<% content_for :sitemap do %>
+  <span class="current">App详细</span>
+<% end %>
+<div class="app">
+  <p><strong>App名：</strong><%= @app.name %></p>
+  <p><strong>App下载地址：</strong><%= @app.app_url %></p>
+  <p><strong>App简介：</strong><%= @app.intro %></p>
+</div>

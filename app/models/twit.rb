@@ -12,8 +12,15 @@ class Twit < ActiveRecord::Base
   
   before_save :send_twit
   def send_twit
+    cert = self.certificate
+    if cert.blank?
+      return false
+    end
+    
+    puts "Cert: " + cert
+    
     pusher = Grocer.pusher(
-      certificate: self.certificate,      # required
+      certificate: cert,      # required
       passphrase:  "123456",              # optional
       gateway:     self.gateway,          # optional; See note below.
       port:        2195,                  # optional
@@ -49,10 +56,13 @@ class Twit < ActiveRecord::Base
   end
   
   def certificate
+    twit_config = TwitConfig.find_by_app_id(self.app_id)
+    return "" unless twit_config
+    # puts "#{Rails.public_path}#{twit_config.dev_cert}"
     if self.is_debug
-      "#{Rails.root}/config/dev-cert.pem"
+      "#{Rails.public_path}#{twit_config.dev_cert}"
     else
-      "#{Rails.root}/config/prod-cert.pem"
+      "#{Rails.public_path}#{twit_config.prod_cert}"
     end
   end
   

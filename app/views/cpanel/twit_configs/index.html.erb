@@ -1,0 +1,31 @@
+<% content_for :sitemap do %>
+  <span class="current">推送配置列表</span>
+<% end %>
+
+<%= render_header_list("推送配置列表", "新建推送配置", "/cpanel/twit_configs/new" ) %>
+<table class="table table-hover">
+  <tr class="head">
+    <td class="first">ID</td>
+    <td>Development Cert</td>
+    <td>Production Cert</td>
+    <td>所属App</td>
+    <td>at</td>
+    <td style="width:140px"></td>
+  </tr>
+  
+  <% @twit_configs.each do |tc| %>
+  <tr>
+    <td class="first"><%= tc.id %></td>
+    <td><%= tc.dev_cert %></td>
+    <td><%= tc.prod_cert %></td>
+    <td><%= "#{tc.app.try(:name)}-#{render_app_os_name(tc.app)}" %></td>
+    <td><%= l tc.created_at, :format => :short %></td>
+    <td>
+      <%= link_to "编辑", edit_cpanel_twit_config_path(tc), :class => "btn btn-mini" %>
+      <%= link_to "删除", cpanel_twit_config_path(tc), :confirm => "你确定吗？", :method => :delete, :class => "btn btn-mini btn-danger" %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+
+<div style="text-align:center;"><%= will_paginate @twit_configs %></div>
