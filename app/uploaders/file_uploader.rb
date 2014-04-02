@@ -17,7 +17,7 @@ class FileUploader < CarrierWave::Uploader::Base
   def filename
     if super.present?
       @name ||= Digest::MD5.hexdigest(File.dirname(current_path))
-      "#{model.id}-#{@name}-#{original_filename}"
+      "#{@name}-#{original_filename}"
     end
   end
   
