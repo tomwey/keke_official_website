@@ -11,6 +11,9 @@ class Cpanel::NewsblastsController < Cpanel::ApplicationController
   
   def new
     @newsblast = Newsblast.new
+    # 3.times do
+      # @newsblast.button_links.build
+    # end
   end
   
   def create
@@ -24,6 +27,7 @@ class Cpanel::NewsblastsController < Cpanel::ApplicationController
   
   def edit
     @newsblast = Newsblast.find(params[:id])
+    # @newsblast.button_links.build if @newsblast.button_links.empty?
   end
   
   def update

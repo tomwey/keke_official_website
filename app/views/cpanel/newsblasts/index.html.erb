@@ -19,7 +19,7 @@
     <td class="first"><%= newsblast.id %></td>
     <td><%= newsblast.title %></td>
     <td><%= newsblast.content %></td>
-    <td><%= newsblast.link %></td>
+    <td><%= newsblast.url %></td>
     <td><%= newsblast.apps.map {|a| a.name }.join(',') %></td>
     <td><%= l newsblast.created_at, :format => :short %></td>
     <td>

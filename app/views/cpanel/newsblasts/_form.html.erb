@@ -2,11 +2,13 @@
   <%= render "shared/error_messages", :target => @newsblast %>
   <fieldset>
     <legend><%= legend %></legend>
-    <%= f.input :title, :label => "公告标题", :input_html => { :style => "width: 400px" } %>
-    
-    <%= f.input :content, :label => "公告内容", as: :text, :input_html => { :style => "width: 400px", :rows => 6 } %>
-    <%= f.input :news_type, :label => "公告类别", :collection => Newsblast::NEWS_TYPES, :input_html => { :style => "width: 100px" } %>
-    <%= f.input :link, :label => "公告链接", :placeholder => "http://itunes.apple.com/id123456789", :input_html => { :class => "span9" } %>   
+    <%= f.input :news_type, :label => "公告类别", :collection => Newsblast::NEWS_TYPES, :input_html => { :style => "width: 100px" }, :prompt => "--请选择类别--" %>
+    <%= f.input :show_times, :label => "显示次数", :input_html => { :style => "width: 60px" } %>
+    <div class="alert-sec">
+      <%= f.input :title, :label => "公告标题", :input_html => { :style => "width: 400px" } %>
+      <%= f.input :content, :label => "公告内容", as: :text, :input_html => { :style => "width: 400px", :rows => 6 } %>
+    </div>
+    <%= f.input :url, :label => "公告链接", :placeholder => "http://itunes.apple.com/id123456789", :input_html => { :class => "span9" } %>   
     
     <div class="control-group">
       <%= f.label "所属应用(可多选)", :class => "control-label" %>
@@ -19,9 +21,50 @@
       </div>
     </div>
     
+    <div class="alert-sec">
+      <%= f.simple_fields_for :button_links do |builder| %>
+      <%= render "/cpanel/newsblasts/button_link_fields", { :f => builder } %>
+      <% end %>
+      <div class="control-group">
+        <div class="controls">
+          <%= link_to_add_fields2("添加一个按钮组", f, :button_links) %>
+        </div>
+      </div>
+    </div>
+    
     <div class="form-actions">
       <%= f.submit "保存", :disable_with => "正在提交...", :class => "btn btn-success" %>
       <%= link_to "返回", :back, :class => "btn" %>
     </div>
   </fieldset>
+<% end %>
+
+<% content_for :scripts do %>
+<script>
+
+$(function() {
+  updateStatus();
+});
+
+function updateStatus() 
+{
+  var value = $("#newsblast_news_type").val();
+  if (value == 3) {
+    $("div.newsblast_url").show();
+    $("div.alert-sec").hide();
+    $("div.alert-sec input[type='text']").val("");
+    $("div.alert-sec textarea").val("");
+    $("div.alert-sec input[type=checkbox]").attr("checked", "checked");
+  } else {
+    $("div.newsblast_url").hide();
+    $("div.alert-sec").show();
+    $("div.newsblast_url #newsblast_url").val("");
+    $("div.alert-sec input[type=checkbox]").attr("checked", false);
+  }
+}
+
+$("#newsblast_news_type").change(function() {
+  updateStatus();
+});
+</script>
 <% end %>

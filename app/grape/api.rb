@@ -1,5 +1,6 @@
 # coding: utf-8
 require "helpers"
+require "entities"
 
 module KeKe
   class API < Grape::API
@@ -114,13 +115,15 @@ module KeKe
           return render_404_json
         end
         
-        news = app.newsblasts.sample(1)
+        newsblast = app.newsblasts.sample(1).first
         
-        unless news
+        unless newsblast
           return render_404_json
         end
         
-        { code: 0, message: 'ok', data: news }
+        present newsblast, :with => APIEntities::NewsblastDetail
+        
+        render_success_with_body(body())
         
       end # end news.json
     end # end Newsblast接口
