@@ -5,7 +5,8 @@ module KeKe
       expose :id
       expose :news_type, as: :type 
       expose :show_times, type: String
-      expose :title, :content, if: lambda { |newsblast, options| newsblast.news_type != 3 }
+      expose :title
+      expose :content, if: lambda { |newsblast, options| newsblast.news_type != 3 }
       expose :url, if: lambda { |newsblast, options| newsblast.news_type == 3 }
       expose :links, if: lambda { |newsblast, options| newsblast.news_type != 3  } do |newsblast, options|
         newsblast.button_links.select('title, link').each do
