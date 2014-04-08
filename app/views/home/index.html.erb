@@ -6,7 +6,7 @@
   <div class="carousel-inner">
     <% @banners.each_with_index do |banner, index| %>
     <div class="item <%= "active" if index == 0 %>">
-      <%= link_to banner.app.app_url, :target => "__blank" do %>
+      <%= link_to banner.link, :target => "__blank" do %>
       <%= image_tag(banner.screenshot_url) %> 
       <div class="container">
         <div class="hack-caption">

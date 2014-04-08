@@ -5,6 +5,7 @@
     <%= f.input :title, :label => "标题" %>
     <%= f.input :summary, :label => "简介", :input_html => { :class => "span6" } %>
     <%= f.input :app_id, :label => "所属应用", :collection => App.all.map { |app| ["#{app.name}-#{render_app_os_name(app)}", app.id] }, :prompt => "--选择应用--" %>
+    <%= f.input :url, :label => "广告链接", :input_html => { :class => "span9" } %>
     <%= f.input :screenshot, :label => "广告图片", :as => :file %>
     <% if @banner.screenshot? -%>
     <div class="controls">
@@ -16,4 +17,26 @@
       <%= link_to "返回", :back, :class => "btn" %>
     </div>
   </fieldset>
+<% end %>
+
+<% content_for :scripts do %>
+<script>
+$(function() {
+  updateStatus();
+});
+
+function updateStatus() 
+{
+  var value = $("#banner_app_id").val();
+  if (value === '') {
+    $("div.banner_url").show();
+  } else {
+    $("div.banner_url").hide();
+  }
+}
+
+$("#banner_app_id").change(function() {
+  updateStatus();
+});
+</script>
 <% end %>
