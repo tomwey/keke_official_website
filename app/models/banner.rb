@@ -13,6 +13,12 @@ class Banner < ActiveRecord::Base
   
   def link
     self.url || self.app.app_url
+    l = if self.url.blank?
+      self.app.try(:app_url)
+    else
+      self.url
+    end
+    l
   end
   
   def platforms
