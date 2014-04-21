@@ -9,8 +9,8 @@
     <div class="alert-sec">
       <%= f.input :content, :label => "公告内容", as: :text, :input_html => { :style => "width: 400px", :rows => 6 } %>
     </div>
-    <%= f.input :url, :label => "公告链接", :placeholder => "http://itunes.apple.com/id123456789", :input_html => { :class => "span9" } %>   
-    
+    <%= f.input :utype, :label => "所属用户类型", :collection => Newsblast::UTYPE, :prompt => "--选择用户类型--" %>
+    <%= f.input :url, :label => "公告链接", :placeholder => "http://itunes.apple.com/id123456789", :input_html => { :class => "span9" } %>
     <div class="control-group">
       <%= f.label "所属应用(可多选)", :class => "control-label" %>
       <div class="controls">

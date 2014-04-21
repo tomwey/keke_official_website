@@ -107,6 +107,7 @@ module KeKe
     resource :news do
       params do
         requires :key, type: String, desc: "应用程序key"
+        optional :utype, type: String, desc: "用户类型"
       end
       
       get '/' do
@@ -115,7 +116,24 @@ module KeKe
           return render_404_json
         end
         
-        newsblast = app.newsblasts.sample(1).first
+        if params[:utype]
+          ut = params[:utype].to_i
+          if ut > 3 or ut < 1
+            ut = 3
+          end
+        else
+          ut = 3
+        end
+        
+        if ut == 3
+          ids = [3]
+        elsif ut == 1
+          ids = [1, 3]
+        else
+          ids = [2, 3]
+        end
+        
+        newsblast = app.newsblasts.where(:utype => ids).sample(1).first
         
         unless newsblast
           return render_404_json
