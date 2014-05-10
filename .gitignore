@@ -36,6 +36,7 @@ public/topics/**/*
 *.swp
 *.swo
 .rvmrc
+.secret
 vendor/ruby
 doc/wiki_repo
 solr/data/
